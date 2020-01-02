@@ -1,1 +1,14 @@
-<p>auth works!</p>
+<div class="">
+    <form [formGroup]="authFormGroup" (ngSubmit)="login()">
+
+        <mat-form-field class="example-full-width">
+            <input matInput type="text" placeholder="EmailOrMobile" formControlName="EmailOrMobile">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <input matInput type="password" placeholder="EmailOrMobile" formControlName="password">
+        </mat-form-field>
+        <button type="submit" mat-raised-button color="primary">Login</button>
+
+    </form>
+
+</div>
