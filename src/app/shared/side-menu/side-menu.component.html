@@ -1,5 +1,10 @@
 <mat-sidenav-container class="example-container">
+
     <mat-sidenav #sidenav mode="side" opened>
+        <div class="side-bar-header-max">
+            <h2>Side bar header</h2>
+
+        </div>
         <mat-list>
             <mat-list-item> One</mat-list-item>
             <mat-list-item> Salt </mat-list-item>
@@ -15,6 +20,6 @@
         </mat-list>
     </mat-sidenav>
     <mat-sidenav-content>
-        <p><button mat-button (click)="sidenav.toggle()">Toggle</button></p>
+        <app-top-menu></app-top-menu>
     </mat-sidenav-content>
 </mat-sidenav-container>

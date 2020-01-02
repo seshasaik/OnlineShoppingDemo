@@ -4,4 +4,15 @@
     bottom: 0;
     left: 0;
     right: 0;
-  }
+}
+
+.side-bar-header-max {
+    position: relative;
+    width: 30%;
+    height: 10%;
+}
+
+.side-bar-header-min {
+    position: relative;
+    width: 0%;
+}
