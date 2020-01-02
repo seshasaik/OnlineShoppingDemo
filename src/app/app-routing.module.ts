@@ -12,6 +12,8 @@ const routes: Routes = [
   { path: 'settings', loadChildren: () => import('./feature/settings/settings.module').then(m => m.SettingsModule) },
   { path: 'supplier', loadChildren: () => import('./feature/supplier/supplier.module').then(m => m.SupplierModule) },
   { path: 'auth', loadChildren: () => import('./feature/auth/auth.module').then(m => m.AuthModule) },
+  { path: 'dashboard', loadChildren: () => import('./feature/dashboard/dashboard.module').then(m => m.DashboardModule) },
+  { path: '', redirectTo: 'auth', pathMatch: 'full' }
 ];
 
 @NgModule({

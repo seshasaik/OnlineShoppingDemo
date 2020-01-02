@@ -1,0 +1,211 @@
+[{
+        "isActiveRoute": false,
+        "routeDisplayName": "Dashboard",
+        "subRoutes": [],
+        "route": "",
+        "routeAccessFor": []
+    },
+    {
+        "isActiveRoute": false,
+        "routeDisplayName": "Billing",
+        "subRoutes": [{
+                "isActiveRoute": false,
+                "subRoutes": [],
+                "routeDisplayName": "Pending Bills",
+                "route": "",
+                "routeAccessFor": []
+            },
+            {
+                "isActiveRoute": false,
+                "subRoutes": [],
+                "routeDisplayName": "History",
+                "route": "",
+                "routeAccessFor": []
+            }
+        ],
+        "route": "",
+        "routeAccessFor": []
+    },
+    {
+        "isActiveRoute": false,
+        "routeDisplayName": "Customer",
+        "subRoutes": [{
+                "isActiveRoute": false,
+                "subRoutes": [],
+                "routeDisplayName": "Customer list",
+                "route": "",
+                "routeAccessFor": []
+            },
+            {
+                "isActiveRoute": false,
+                "subRoutes": [],
+                "routeDisplayName": "Add Customer",
+                "route": "",
+                "routeAccessFor": []
+            },
+            {
+                "isActiveRoute": false,
+                "subRoutes": [],
+                "routeDisplayName": "Active Customers",
+                "route": "",
+                "routeAccessFor": []
+            },
+            {
+                "isActiveRoute": false,
+                "subRoutes": [],
+                "routeDisplayName": "Deleted Customers",
+                "route": "",
+                "routeAccessFor": []
+            },
+            {
+                "isActiveRoute": false,
+                "subRoutes": [],
+                "routeDisplayName": "Locked Customer",
+                "route": "",
+                "routeAccessFor": []
+            }
+        ],
+        "route": "",
+        "routeAccessFor": []
+    },
+    {
+        "isActiveRoute": false,
+        "routeDisplayName": "Inventory",
+        "subRoutes": [{
+                "isActiveRoute": false,
+                "subRoutes": [],
+                "routeDisplayName": "Stock",
+                "route": "",
+                "routeAccessFor": []
+            },
+            {
+                "isActiveRoute": false,
+                "subRoutes": [],
+                "routeDisplayName": "Zero level stock",
+                "route": "",
+                "routeAccessFor": []
+            },
+            {
+                "isActiveRoute": false,
+                "subRoutes": [],
+                "routeDisplayName": "Reorder level stock",
+                "route": "",
+                "routeAccessFor": []
+            }
+        ],
+        "route": "",
+        "routeAccessFor": []
+    },
+    {
+        "isActiveRoute": false,
+        "routeDisplayName": "Order",
+        "subRoutes": [{
+                "isActiveRoute": false,
+                "subRoutes": [],
+                "routeDisplayName": "Pending Orders",
+                "route": "",
+                "routeAccessFor": []
+            },
+            {
+                "isActiveRoute": false,
+                "subRoutes": [],
+                "routeDisplayName": "Recent Month Orders",
+                "route": "",
+                "routeAccessFor": []
+            },
+            {
+                "isActiveRoute": false,
+                "subRoutes": [],
+                "routeDisplayName": "Canceled Orders",
+                "route": "",
+                "routeAccessFor": []
+            },
+            {
+                "isActiveRoute": false,
+                "subRoutes": [],
+                "routeDisplayName": "History",
+                "route": "",
+                "routeAccessFor": []
+            }
+        ],
+        "route": "",
+        "routeAccessFor": []
+    },
+    {
+        "isActiveRoute": false,
+        "routeDisplayName": "Product",
+        "subRoutes": [{
+                "isActiveRoute": false,
+                "subRoutes": [],
+                "routeDisplayName": "Product List",
+                "route": "",
+                "routeAccessFor": []
+            },
+            {
+                "isActiveRoute": false,
+                "subRoutes": [],
+                "routeDisplayName": "Liked product",
+                "route": "",
+                "routeAccessFor": []
+            },
+            {
+                "isActiveRoute": false,
+                "subRoutes": [],
+                "routeDisplayName": "Add Product",
+                "route": "",
+                "routeAccessFor": []
+            }
+        ],
+        "route": "",
+        "routeAccessFor": []
+    },
+    {
+        "isActiveRoute": false,
+        "routeDisplayName": "Settings",
+        "subRoutes": [{
+                "isActiveRoute": false,
+                "subRoutes": [],
+                "routeDisplayName": "Change Password",
+                "route": "",
+                "routeAccessFor": []
+            },
+            {
+                "isActiveRoute": false,
+                "subRoutes": [],
+                "routeDisplayName": "Profile",
+                "route": "",
+                "routeAccessFor": []
+            },
+            {
+                "isActiveRoute": false,
+                "subRoutes": [],
+                "routeDisplayName": "Notification",
+                "route": "",
+                "routeAccessFor": []
+            }
+        ],
+        "route": "",
+        "routeAccessFor": []
+    },
+    {
+        "isActiveRoute": false,
+        "routeDisplayName": "Supplier",
+        "subRoutes": [{
+                "isActiveRoute": false,
+                "subRoutes": [],
+                "routeDisplayName": "Suppliers list",
+                "route": "",
+                "routeAccessFor": []
+            },
+            {
+                "isActiveRoute": false,
+                "subRoutes": [],
+                "routeDisplayName": "Add Supplier",
+                "route": "",
+                "routeAccessFor": []
+            }
+        ],
+        "route": "",
+        "routeAccessFor": []
+    }
+]
