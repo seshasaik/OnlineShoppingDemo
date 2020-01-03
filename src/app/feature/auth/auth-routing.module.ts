@@ -1,8 +1,11 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { AuthComponent } from './login/auth.component';
-import { ForgetPasswordComponent } from './forget-password/forget-password.component';
-import { SignUpComponent } from './sign-up/sign-up.component';
+import { Routes, RouterModule, Router } from '@angular/router';
+import { AuthComponent } from './component/login/auth.component';
+import { ForgetPasswordComponent } from './component/forget-password/forget-password.component';
+import { SignUpComponent } from './component/sign-up/sign-up.component';
+import { AuthService } from './auth-service.service';
+import { GlobalMaterialModuleModule } from 'src/app/global-material-module/global-material-module.module';
+import { ReactiveFormsModule, FormGroup } from '@angular/forms';
 
 
 const routes: Routes = [
@@ -13,7 +16,9 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  imports: [RouterModule.forChild(routes), GlobalMaterialModuleModule, ReactiveFormsModule],
+  exports: [RouterModule],
+  declarations: [AuthComponent, ForgetPasswordComponent, SignUpComponent],
+  providers: [AuthService]
 })
 export class AuthRoutingModule { }

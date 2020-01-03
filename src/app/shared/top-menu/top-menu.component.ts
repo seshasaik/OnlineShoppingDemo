@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+
+
 
 @Component({
   selector: 'app-top-menu',
@@ -12,4 +14,10 @@ export class TopMenuComponent implements OnInit {
   ngOnInit() {
   }
 
+  @Output("sideNavToggleButtonStateChange") toggleSideNavEvent = new EventEmitter();
+
+  toggleSideNav(): void {
+    console.log("toggleSideNav Clicked");
+    this.toggleSideNavEvent.emit("");
+  }
 }

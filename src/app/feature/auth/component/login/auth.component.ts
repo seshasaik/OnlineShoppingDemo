@@ -4,7 +4,9 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Customer } from 'src/app/model/customer';
 import { User } from 'src/app/model/user';
 import { Router } from '@angular/router';
-import { AuthService } from '../auth-service.service';
+import { AuthService } from '../../auth-service.service';
+
+
 
 @Component({
   selector: 'app-auth',
@@ -12,11 +14,15 @@ import { AuthService } from '../auth-service.service';
   styleUrls: ['./auth.component.css']
 })
 export class AuthComponent implements OnInit {
-  authFormGroup = new FormGroup({
-    "EmailOrMobile": new FormControl('', [Validators.required]),
-    "password": new FormControl('', [Validators.required])
-  })
-  constructor(private authService: AuthService, private route: Router) { }
+  authFormGroup: FormGroup;
+  constructor(private authService: AuthService, private route: Router) {
+    this.authFormGroup = new FormGroup({
+      "EmailOrMobile": new FormControl('', [Validators.required]),
+      "password": new FormControl('', [Validators.required])
+    });
+
+
+  }
   login(): void {
     if (this.authFormGroup.valid) {
       var user = new User();

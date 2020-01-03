@@ -3,7 +3,6 @@
     <mat-sidenav #sidenav mode="side" opened>
         <div class="side-bar-header-max">
             <h2>Side bar header</h2>
-
         </div>
         <mat-list>
             <mat-list-item>
@@ -22,6 +21,6 @@
         </mat-list>
     </mat-sidenav>
     <mat-sidenav-content>
-        <app-top-menu></app-top-menu>
+        <app-top-menu (sideNavToggleButtonStateChange)="toggleSideMenuContainer($event)"></app-top-menu>
     </mat-sidenav-content>
 </mat-sidenav-container>
