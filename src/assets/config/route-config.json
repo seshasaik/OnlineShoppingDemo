@@ -2,7 +2,7 @@
         "isActiveRoute": false,
         "routeDisplayName": "Dashboard",
         "subRoutes": [],
-        "route": "",
+        "route": "dashboard",
         "routeAccessFor": []
     },
     {
@@ -12,18 +12,18 @@
                 "isActiveRoute": false,
                 "subRoutes": [],
                 "routeDisplayName": "Pending Bills",
-                "route": "",
+                "route": "pending",
                 "routeAccessFor": []
             },
             {
                 "isActiveRoute": false,
                 "subRoutes": [],
                 "routeDisplayName": "History",
-                "route": "",
+                "route": "history",
                 "routeAccessFor": []
             }
         ],
-        "route": "",
+        "route": "billing",
         "routeAccessFor": []
     },
     {
@@ -65,7 +65,7 @@
                 "routeAccessFor": []
             }
         ],
-        "route": "",
+        "route": "customer",
         "routeAccessFor": []
     },
     {
@@ -93,7 +93,7 @@
                 "routeAccessFor": []
             }
         ],
-        "route": "",
+        "route": "inventory",
         "routeAccessFor": []
     },
     {
@@ -128,7 +128,7 @@
                 "routeAccessFor": []
             }
         ],
-        "route": "",
+        "route": "order",
         "routeAccessFor": []
     },
     {
@@ -156,7 +156,7 @@
                 "routeAccessFor": []
             }
         ],
-        "route": "",
+        "route": "product",
         "routeAccessFor": []
     },
     {
@@ -184,7 +184,7 @@
                 "routeAccessFor": []
             }
         ],
-        "route": "",
+        "route": "settings",
         "routeAccessFor": []
     },
     {
@@ -205,7 +205,7 @@
                 "routeAccessFor": []
             }
         ],
-        "route": "",
+        "route": "supplier",
         "routeAccessFor": []
     }
 ]

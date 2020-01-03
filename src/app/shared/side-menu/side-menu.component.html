@@ -1,26 +1,30 @@
 <mat-sidenav-container class="example-container">
-
     <mat-sidenav #sidenav mode="side" opened>
         <div class="side-bar-header-max">
-            <h2>Side bar header</h2>
+            <h2>Online shoping</h2>
         </div>
-        <mat-list>
-            <mat-list-item>
-                <a></a>
-            </mat-list-item>
-            <mat-list-item> Salt </mat-list-item>
-            <mat-list-item> Paprika </mat-list-item>
-            <mat-list-item> Pepper </mat-list-item>
-        </mat-list>
-        <mat-divider></mat-divider>
-        <mat-list>
-            <mat-list-item> One</mat-list-item>
-            <mat-list-item> Salt </mat-list-item>
-            <mat-list-item> Paprika </mat-list-item>
-            <mat-list-item> Pepper </mat-list-item>
-        </mat-list>
+        <mat-accordion>
+            <mat-expansion-panel *ngFor="let userRoute of userRoutes">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>{{userRoute.routeDisplayName}}</mat-panel-title>
+                </mat-expansion-panel-header>
+                <mat-list>
+
+                    <mat-list-item *ngIf="userRoute.subRoutes.length == 0">
+                        <a [routerLink]="[userRoute.route]">{{userRoute.routeDisplayName}}</a>
+                    </mat-list-item>
+
+                    <ng-container *ngIf="userRoute.subRoutes.length > 0">
+                        <mat-list-item *ngFor="let subUserRoute of userRoute.subRoutes">
+                            <a [routerLink]="[userRoute.route , subUserRoute.route]">{{subUserRoute.routeDisplayName}}</a>
+                        </mat-list-item>
+                    </ng-container>
+                </mat-list>
+            </mat-expansion-panel>
+        </mat-accordion>
     </mat-sidenav>
     <mat-sidenav-content>
         <app-top-menu (sideNavToggleButtonStateChange)="toggleSideMenuContainer($event)"></app-top-menu>
+        <router-outlet></router-outlet>
     </mat-sidenav-content>
 </mat-sidenav-container>

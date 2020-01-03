@@ -2,11 +2,12 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { BillingRoutingModule } from './billing-routing.module';
-import { BillingComponent } from './billing.component';
+import { PendingBillingsComponent } from './pending-billings/pending-billings.component';
+import { HistoryComponent } from './history/history.component';
 
 
 @NgModule({
-  declarations: [BillingComponent],
+  declarations: [PendingBillingsComponent, HistoryComponent],
   imports: [
     CommonModule,
     BillingRoutingModule

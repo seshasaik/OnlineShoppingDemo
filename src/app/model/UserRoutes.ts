@@ -3,8 +3,8 @@ import { Roles } from '../roles.enum';
 export class UserRoutes {
 
     isActiveRoute: boolean = false;
-    routeDisplayName: string = "";
+    routeDisplayName: String = "";
     subRoutes: UserRoutes[] = [];
     routeAccessFor: Roles[] = [];
-    route: String = "";
+    route: string = "";
 }

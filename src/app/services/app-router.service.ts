@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import * as routeConfig from '../../assets/config/route-config.json';
+import routeConfig from '../../assets/config/route-config.json';
 import { UserRoutes } from '../model/UserRoutes.js';
 
 @Injectable({
@@ -9,7 +9,7 @@ export class AppRouterService {
 
   applicationRouteArray: UserRoutes[] = [];
   constructor() {
-    console.log(routeConfig);
+    console.log(JSON.stringify(routeConfig));
     this.applicationRouteArray = routeConfig;
   }
 }
