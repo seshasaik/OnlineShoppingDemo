@@ -33,14 +33,14 @@
                 "isActiveRoute": false,
                 "subRoutes": [],
                 "routeDisplayName": "Customer list",
-                "route": "",
+                "route": "list",
                 "routeAccessFor": []
             },
             {
                 "isActiveRoute": false,
                 "subRoutes": [],
                 "routeDisplayName": "Add Customer",
-                "route": "",
+                "route": "add",
                 "routeAccessFor": []
             },
             {

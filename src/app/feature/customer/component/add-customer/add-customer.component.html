@@ -1,1 +1,42 @@
-<p>add-customer works!</p>
+<div>
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>
+                <p>Create customer</p>
+            </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <div>
+                <form [formGroup]="customerFormGroup" (ngSubmit)="saveCustomer()">
+
+                    <mat-form-field>
+                        <input type="text" matInput placeholder="first Name" formControlName="firstName">
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input type="text" matInput placeholder="middel Name" formControlName="middelName">
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input type="text" matInput placeholder="last Name" formControlName="lastName">
+                    </mat-form-field>
+                    <mat-radio-group formControlName="gender">
+                        <mat-radio-button [value]="MALE">Male</mat-radio-button>
+                        <mat-radio-button [value]="FEMALE">FeMale</mat-radio-button>
+                    </mat-radio-group>
+                    <mat-form-field>
+                        <input type="text" matInput placeholder="email" formControlName="email">
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input type="text" matInput placeholder="phone" formControlName="phone">
+                    </mat-form-field>
+                    <mat-form-field>
+                        <textarea matInput placeholder="address" formControlName="address"></textarea>
+                    </mat-form-field>
+                </form>
+
+            </div>
+        </mat-card-content>
+        <mat-card-actions>
+
+        </mat-card-actions>
+    </mat-card>
+</div>

@@ -10,7 +10,6 @@ import { TopMenuComponent } from './shared/top-menu/top-menu.component';
 import { AppRouterService } from './services/app-router.service';
 import { HttpClientModule } from '@angular/common/http';
 
-
 @NgModule({
   declarations: [
     AppComponent,

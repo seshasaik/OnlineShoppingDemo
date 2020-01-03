@@ -18,6 +18,7 @@ export class SideMenuComponent implements OnInit {
   }
 
   ngOnInit() {
+    
   }
 
   toggleSideMenuContainer($event: any) {

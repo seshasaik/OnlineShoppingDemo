@@ -1,5 +1,6 @@
 import { UserState } from '../feature/auth/user-state.enum';
 import { Account } from './account';
+import { UserGender } from './user-gender.enum';
 
 export class Customer {
 
@@ -7,6 +8,10 @@ export class Customer {
     address: String;
     phone: String;
     email: String;
-    state: UserState;    
+    state: UserState;
     account: Account;
+    firstName: String;
+    middelName: String;
+    lastName: String;
+    gender: UserGender;
 }
