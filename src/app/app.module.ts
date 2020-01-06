@@ -9,6 +9,7 @@ import { GlobalMaterialModuleModule } from './global-material-module/global-mate
 import { TopMenuComponent } from './shared/top-menu/top-menu.component';
 import { AppRouterService } from './services/app-router.service';
 import { HttpClientModule } from '@angular/common/http';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -22,8 +23,10 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
+    FlexLayoutModule,
     GlobalMaterialModuleModule,
     AppRoutingModule,
+
   ],
   providers: [AppRouterService],
   bootstrap: [AppComponent]

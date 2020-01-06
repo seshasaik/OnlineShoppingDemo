@@ -1,4 +1,4 @@
-import { UserState } from '../feature/auth/user-state.enum';
+import { UserState } from '../feature/user/user-state.enum';
 import { Account } from './account';
 import { UserGender } from './user-gender.enum';
 
