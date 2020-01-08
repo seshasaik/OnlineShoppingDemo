@@ -1,6 +1,7 @@
-import { UserState } from '../feature/user/user-state.enum';
+
 import { Account } from './account';
 import { UserGender } from './user-gender.enum';
+import { UserState } from './user-state.enum';
 
 export class Customer {
 

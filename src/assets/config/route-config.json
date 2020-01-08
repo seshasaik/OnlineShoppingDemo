@@ -138,21 +138,21 @@
                 "isActiveRoute": false,
                 "subRoutes": [],
                 "routeDisplayName": "Product List",
-                "route": "",
+                "route": "/list",
                 "routeAccessFor": []
             },
             {
                 "isActiveRoute": false,
                 "subRoutes": [],
                 "routeDisplayName": "Liked product",
-                "route": "",
+                "route": "/liked",
                 "routeAccessFor": []
             },
             {
                 "isActiveRoute": false,
                 "subRoutes": [],
                 "routeDisplayName": "Add Product",
-                "route": "",
+                "route": "/add",
                 "routeAccessFor": []
             }
         ],

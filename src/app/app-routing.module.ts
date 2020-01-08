@@ -1,20 +1,20 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { RouteGuard } from './_guards/route-guard.guard';
+import { LoginComponent } from './login/login.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
+import { ForgetPasswordComponent } from './forget-password/forget-password.component';
+import { HomeComponent } from './home/home.component';
+
 
 
 const routes: Routes = [
-  { path: 'product', loadChildren: () => import('./feature/product/product.module').then(m => m.ProductModule), canActivate: [RouteGuard] },
-  { path: 'customer', loadChildren: () => import('./feature/customer/customer.module').then(m => m.CustomerModule), canActivate: [RouteGuard] },
-  { path: 'cart', loadChildren: () => import('./feature/shoping-cart/shoping-cart.module').then(m => m.ShopingCartModule), canActivate: [RouteGuard] },
-  { path: 'inventory', loadChildren: () => import('./feature/inventory/inventory.module').then(m => m.InventoryModule), canActivate: [RouteGuard] },
-  { path: 'order', loadChildren: () => import('./feature/order/order.module').then(m => m.OrderModule), canActivate: [RouteGuard] },
-  { path: 'billing', loadChildren: () => import('./feature/billing/billing.module').then(m => m.BillingModule), canActivate: [RouteGuard] },
-  { path: 'settings', loadChildren: () => import('./feature/settings/settings.module').then(m => m.SettingsModule), canActivate: [RouteGuard] },
-  { path: 'supplier', loadChildren: () => import('./feature/supplier/supplier.module').then(m => m.SupplierModule), canActivate: [RouteGuard] },
-  { path: 'auth', loadChildren: () => import('./feature/user/auth.module').then(m => m.AuthModule) },
-  { path: 'dashboard', loadChildren: () => import('./feature/dashboard/dashboard.module').then(m => m.DashboardModule), canActivate: [RouteGuard] },
-  { path: '', redirectTo: 'auth', pathMatch: 'full' }
+  { path: 'login', component: LoginComponent },
+  { path: 'sign-up', component: SignUpComponent },
+  { path: 'forget-password', component: ForgetPasswordComponent },
+  { path: 'dashboard', component: HomeComponent, loadChildren: () => import('./home/home.module').then(m => m.HomeModule), canActivate: [RouteGuard] },
+  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+  { path: '**', redirectTo: 'login', pathMatch: 'full' },
 ];
 
 @NgModule({

@@ -1,21 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-
-import { Customer } from 'src/app/model/customer';
-import { User } from 'src/app/model/user';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from '../../auth-service.service';
-
-
+import { User } from 'src/app/model/user';
+import { AuthService } from '../services/auth.service';
 
 @Component({
-  selector: 'app-auth',
-  templateUrl: './auth.component.html',
-  styleUrls: ['./auth.component.css']
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
 })
-export class AuthComponent implements OnInit {
+export class LoginComponent implements OnInit {
+
   authFormGroup: FormGroup;
-  constructor(private authService: AuthService, private route: Router) {
+  constructor(private route: Router, private authService : AuthService) {
     this.authFormGroup = new FormGroup({
       "EmailOrMobile": new FormControl('', [Validators.required]),
       "password": new FormControl('', [Validators.required])
@@ -29,12 +26,8 @@ export class AuthComponent implements OnInit {
       user.email = this.authFormGroup.get('EmailOrMobile').value;
       user.phone = this.authFormGroup.get('EmailOrMobile').value;
       user.password = this.authFormGroup.get("password").value;
+      this.authService.login(user);
 
-      this.authService.validateUserCredentilas(user).subscribe((customer: Customer) => {
-        this.route.navigate(['/dashboard']);
-      }, (e) => {
-        console.error(e);
-      });
     }
   }
 

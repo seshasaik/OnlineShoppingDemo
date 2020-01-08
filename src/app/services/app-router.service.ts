@@ -9,7 +9,7 @@ export class AppRouterService {
 
   applicationRouteArray: UserRoutes[] = [];
   constructor() {
-    console.log(JSON.stringify(routeConfig));
+    // console.log(JSON.stringify(routeConfig));
     this.applicationRouteArray = routeConfig;
   }
 }
