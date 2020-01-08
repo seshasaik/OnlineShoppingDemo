@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: 'sign-up', component: SignUpComponent },
   { path: 'forget-password', component: ForgetPasswordComponent },
   { path: 'dashboard', component: HomeComponent, loadChildren: () => import('./home/home.module').then(m => m.HomeModule), canActivate: [RouteGuard] },
-  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+  // { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   { path: '**', redirectTo: 'login', pathMatch: 'full' },
 ];
 

@@ -16,7 +16,7 @@
 
                     <ng-container *ngIf="userRoute.subRoutes.length > 0">
                         <mat-list-item *ngFor="let subUserRoute of userRoute.subRoutes">
-                            <a [routerLink]="[{outlets: { home : [userRoute.route , subUserRoute.route]}}]">{{subUserRoute.routeDisplayName}}</a>
+                            <a [routerLink]="[{outlets: { home : [userRoute.route, subUserRoute.route]}}]">{{subUserRoute.routeDisplayName}}</a>
                         </mat-list-item>
                     </ng-container>
                 </mat-list>
@@ -25,6 +25,8 @@
     </mat-sidenav>
     <mat-sidenav-content>
         <app-top-menu (sideNavToggleButtonStateChange)="toggleSideMenuContainer($event)"></app-top-menu>
-        <router-outlet name='home'></router-outlet>
+        <div class="main-app-container">
+            <router-outlet name='home'></router-outlet>
+        </div>
     </mat-sidenav-content>
 </mat-sidenav-container>

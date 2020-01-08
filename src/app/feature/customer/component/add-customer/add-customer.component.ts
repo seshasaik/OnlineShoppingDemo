@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Customer } from 'src/app/model/customer';
 import { UserGender } from 'src/app/model/user-gender.enum';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { CustomereService } from '../../customere.service';
 
 @Component({
   selector: 'app-add-customer',
@@ -10,9 +11,9 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class AddCustomerComponent implements OnInit {
 
-  customer: Customer;  
+  customer: Customer;
   customerFormGroup: FormGroup;
-  constructor() {
+  constructor(private customerService: CustomereService) {
 
   }
 
@@ -34,6 +35,10 @@ export class AddCustomerComponent implements OnInit {
       this.customer = this.customerFormGroup.value;
       console.log(JSON.stringify(this.customer));
     }
+  }
+
+  resetForm(): void {
+    this.customerFormGroup.reset();
   }
 
 }

@@ -8,6 +8,7 @@ import { DeleteCustomerComponent } from './component/delete-customer/delete-cust
 import { CustomerComponent } from './component/customer-list/customer.component';
 import { GlobalMaterialModuleModule } from 'src/app/global-material-module/global-material-module.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 
@@ -16,7 +17,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     CustomerRoutingModule,
     ReactiveFormsModule,
-    GlobalMaterialModuleModule
+    GlobalMaterialModuleModule,
+    FlexLayoutModule
   ],
   declarations: [SearchCustomerComponent, AddCustomerComponent, EditCustomerComponent, DeleteCustomerComponent, CustomerComponent]
 })

@@ -25,12 +25,12 @@ import { TopMenuComponent } from './top-menu/top-menu.component';
   ],
   imports: [
     BrowserModule,
+    FlexLayoutModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
     GlobalMaterialModuleModule,
-    FlexLayoutModule,
     AppRoutingModule,
   ],
   providers: [AppRouterService],
