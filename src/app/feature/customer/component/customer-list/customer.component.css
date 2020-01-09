@@ -1,0 +1,11 @@
+table {
+    width: 100%;
+}
+
+.customer-list-layout>div {
+    margin: 10px 5px;
+}
+
+.customer-list-layout {
+    background-color: #ffffff;
+}

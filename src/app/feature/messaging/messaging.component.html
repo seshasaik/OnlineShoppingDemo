@@ -1,0 +1,6 @@
+<div class="messaging-dialog" fxLayout="column" fxContentAlign *ngIf="messages.length > 0">
+    <p>Messages</p>
+    <ul>
+        <li *ngFor="let message of messages"> {{message}}</li>
+    </ul>
+</div>

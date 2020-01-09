@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatSidenavModule } from '@angular/material/sidenav'
 import { MatListModule } from '@angular/material/list'
-import { MatToolbarModule, MatIconModule, MatButtonModule, MatInputModule, MatFormFieldModule, MatExpansionModule, MatCardModule, MatRadioModule } from '@angular/material'
+import { MatToolbarModule, MatIconModule, MatButtonModule, MatInputModule, MatFormFieldModule, MatExpansionModule, MatCardModule, MatRadioModule, MatSnackBarModule, MatTableModule } from '@angular/material'
 
 
 @NgModule({
@@ -20,9 +20,11 @@ import { MatToolbarModule, MatIconModule, MatButtonModule, MatInputModule, MatFo
     MatExpansionModule,
     MatCardModule,
     MatRadioModule,
+    MatSnackBarModule,
+    MatTableModule
   ],
   imports: [
     CommonModule
   ]
 })
-export class GlobalMaterialModuleModule { }
+export class GlobalMaterialModule { }

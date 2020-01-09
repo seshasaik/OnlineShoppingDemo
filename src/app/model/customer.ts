@@ -15,4 +15,5 @@ export class Customer {
     middelName: String;
     lastName: String;
     gender: UserGender;
+    
 }

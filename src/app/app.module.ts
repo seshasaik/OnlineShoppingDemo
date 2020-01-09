@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { GlobalMaterialModuleModule } from './global-material-module/global-material-module.module';
+import { GlobalMaterialModule } from './global-material-module/global-material-module.module';
 import { AppRouterService } from './services/app-router.service';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
@@ -13,6 +13,7 @@ import { HomeComponent } from './home/home.component';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { TopMenuComponent } from './top-menu/top-menu.component';
+import { MessagingModule } from './feature/messaging/messaging.module';
 
 @NgModule({
   declarations: [
@@ -30,8 +31,9 @@ import { TopMenuComponent } from './top-menu/top-menu.component';
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    GlobalMaterialModuleModule,
+    GlobalMaterialModule,
     AppRoutingModule,
+    MessagingModule,
   ],
   providers: [AppRouterService],
   bootstrap: [AppComponent]

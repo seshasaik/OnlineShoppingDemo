@@ -33,7 +33,7 @@ export class AddCustomerComponent implements OnInit {
   saveCustomer(): void {
     if (this.customerFormGroup.valid) {
       this.customer = this.customerFormGroup.value;
-      console.log(JSON.stringify(this.customer));
+      this.customerService.saveCustomer(this.customer);
     }
   }
 

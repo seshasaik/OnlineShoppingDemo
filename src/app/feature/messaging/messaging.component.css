@@ -1,0 +1,14 @@
+.messaging-dialog {
+    position: fixed;
+    bottom: 15px;
+    width: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    z-index: 1;
+    margin-left: 50px;
+    color: #ffffff;
+    background: rgba(0, 0, 0, 0.64);
+    -webkit-box-shadow: 0px 0px 27px -1px #06386e;
+    -moz-box-shadow: 0px 0px 27px -1px #06386e;
+    box-shadow: 0px 0px 27px -1px #06386e;
+}
