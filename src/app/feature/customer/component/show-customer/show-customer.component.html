@@ -1,0 +1,94 @@
+<div fxLayout="column" fxLayoutAlign="streach space-between">
+
+
+    <div class="model-header-container" fxFlex="100%" fxLayout fxLayoutAlign="space-between center">
+        <div>
+            <h2>{{title}}</h2>
+        </div>
+        <div>
+            <button mat-dialog-close><mat-icon>close</mat-icon></button>
+        </div>
+    </div>
+
+    <div class="model-body-container" fxFlex="100%" fxLayout="column" fxLayoutAlign="space-between space-around">
+        <!-- <div fxLayout="row" fxLayoutAlign="space-between center"> -->
+        <div fxLayout="row" fxLayoutAlign="space-between center">
+            <div fxFlex="30%">
+                <label>First Name</label>
+            </div>
+            <div fxGrow="1">
+                <span>{{customer.firstName}}</span>
+            </div>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="space-between center">
+            <div fxFlex="30%">
+                <label>Last Name</label>
+            </div>
+            <div fxGrow="1">
+                <span>{{customer.lastName}}</span>
+            </div>
+        </div>
+        <!-- </div> -->
+        <!-- <div fxLayout="row" fxLayoutAlign="space-around center"> -->
+
+        <div fxLayout="row" fxLayoutAlign="space-between center">
+            <div fxFlex="30%">
+                <label>Middle Name</label>
+            </div>
+            <div fxGrow="1">
+                <span>{{customer.middleName}}</span>
+            </div>
+        </div>
+
+        <div fxLayout="row" fxLayoutAlign="space-between center">
+            <div fxFlex="30%">
+                <label>Gender</label>
+            </div>
+            <div fxGrow="1">
+                <span *ngIf="customer.gender && customer.gender === maleCustomer">
+                    Male
+                </span>
+                <span *ngIf="customer.gender && customer.gender === feMaleCustomer">
+                    FeMale
+                </span>
+
+
+
+            </div>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="space-around center">
+            <div fxFlex="30%">
+                <label>Email</label>
+            </div>
+            <div fxGrow="1">
+                <span>{{customer.email}}</span>
+            </div>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="20px">
+            <div fxFlex="30%">
+                <label>Mobile</label>
+            </div>
+            <div fxGrow="1">
+                <span>{{customer.phone}}</span>
+            </div>
+        </div>
+        <div>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="streach center">
+            <div fxFlex="100%">
+                <label>Address</label>
+                <span>{{customer.address}}</span>
+            </div>
+        </div>
+        <!-- <div fxLayout="row" fxLayoutAlign="space-around center">
+                <div>
+                    <label></label>
+                    <span></span>
+                </div>
+                <div>
+                    <label></label>
+                    <span></span>
+                </div>
+            </div> -->
+    </div>
+</div>

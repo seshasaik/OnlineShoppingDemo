@@ -1,5 +1,12 @@
-<div class="messaging-dialog" fxLayout="column" fxContentAlign *ngIf="messages.length > 0">
-    <p>Messages</p>
+<div class="messaging-dialog" fxLayout="column" fxLayoutAlign *ngIf="messages.length > 0">
+    <div fxLayout fxLayoutAlign="space-between center">
+        <div class="message-header">
+            <p>Messages</p>
+        </div>
+        <div class="message-closer-btn-container">
+            <button mat-fab (click)="closeModel()"><mat-icon>close</mat-icon></button>
+        </div>
+    </div>
     <ul>
         <li *ngFor="let message of messages"> {{message}}</li>
     </ul>

@@ -1,0 +1,22 @@
+.model-header-container h2 {
+    margin: 0;
+}
+
+.model-header-container {
+    padding: 3px 10px 5px;
+    color: #9ec8ff;
+    background: #fff;
+}
+
+.model-header-container button {
+    background: unset;
+    border: unset;
+}
+
+.model-header-container button mat-icon {
+    vertical-align: middle;
+}
+
+.model-body-container>div {
+    margin: 5px 10px;
+}

@@ -12,6 +12,7 @@ import { SearchCustomerComponent } from './component/search-customer/search-cust
 import { AddCustomerComponent } from './component/add-customer/add-customer.component';
 import { EditCustomerComponent } from './component/edit-customer/edit-customer.component';
 import { DeleteCustomerComponent } from './component/delete-customer/delete-customer.component';
+import { ShowCustomerComponent } from './component/show-customer/show-customer.component';
 
 
 @NgModule({
@@ -23,6 +24,8 @@ import { DeleteCustomerComponent } from './component/delete-customer/delete-cust
     FlexLayoutModule
   ],
   providers: [CustomereService],
-  declarations: [SearchCustomerComponent, AddCustomerComponent, EditCustomerComponent, DeleteCustomerComponent, CustomerComponent]
+  declarations: [SearchCustomerComponent, AddCustomerComponent, EditCustomerComponent, DeleteCustomerComponent, CustomerComponent, ShowCustomerComponent],
+  entryComponents: [ShowCustomerComponent],
+
 })
 export class CustomerModule { }

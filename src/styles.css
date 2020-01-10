@@ -19,3 +19,7 @@ body {
 mat-card-title {
     text-align: center;
 }
+
+.customer-detail-dialog .mat-dialog-container {
+    padding: 10px !important;
+}
