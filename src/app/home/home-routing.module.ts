@@ -12,7 +12,7 @@ const routes: Routes = [
   { path: 'settings', loadChildren: () => import('../feature/settings/settings.module').then(m => m.SettingsModule), outlet: 'home' },
   { path: 'supplier', loadChildren: () => import('../feature/supplier/supplier.module').then(m => m.SupplierModule), outlet: 'home' },
   // { path: 'dashboard', loadChildren: () => import('../feature/dashboard/dashboard.module').then(m => m.DashboardModule), outlet: 'home' },    
-  
+  { path: '', redirectTo: 'customer', pathMatch: 'full' }
 ];
 
 @NgModule({

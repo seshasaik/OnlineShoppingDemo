@@ -24,7 +24,6 @@ export class AuthService {
       this.router.navigate(['login']);
     } else {
       this.currentUserSubject.next(JSON.parse(user));
-      this.router.navigate(['dashboard']);
     }
 
 

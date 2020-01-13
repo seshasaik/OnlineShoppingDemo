@@ -1,1 +1,71 @@
-<p>edit-customer works!</p>
+<div>
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>
+                <div fxLayout="row" fxLayoutAlign="space-around center">
+                    <div fxFlex="5%">
+                        <button type="button">Back</button>
+                    </div>
+                    <div fxFlexFill>
+                        <p>Edit customer</p>
+                    </div>
+                </div>
+            </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <div>
+                <form [formGroup]="customerFormGroup" (ngSubmit)="saveCustomer()">
+                    <div fxLayout="column" fxLayoutGap="20px">
+                        <div fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="20px">
+                            <div fxFlex="50%">
+                                <mat-form-field>
+                                    <input type="text" matInput placeholder="first Name" formControlName="firstName">
+                                </mat-form-field>
+                            </div>
+                            <div fxFlex="50%">
+                                <mat-form-field>
+                                    <input type="text" matInput placeholder="middel Name" formControlName="middelName">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="20px">
+                            <div fxFlex="50%">
+                                <mat-form-field>
+                                    <input type="text" matInput placeholder="last Name" formControlName="lastName">
+                                </mat-form-field>
+                            </div>
+                            <div fxFlex="50%">
+                                <mat-radio-group formControlName="gender">
+                                    <mat-radio-button value="MALE">Male</mat-radio-button>
+                                    <mat-radio-button value="FEMALE">FeMale</mat-radio-button>
+                                </mat-radio-group>
+                            </div>
+                        </div>
+                        <div fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="20px">
+                            <div fxFlex="50%">
+                                <mat-form-field>
+                                    <input type="text" matInput placeholder="email" formControlName="email">
+                                </mat-form-field>
+                            </div>
+                            <div fxFlex="50%">
+                                <mat-form-field>
+                                    <input type="text" matInput placeholder="phone" formControlName="phone">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div fxLayout fxLayoutAlign>
+                            <mat-form-field>
+                                <textarea matInput placeholder="address" formControlName="address" rows="1"></textarea>
+                            </mat-form-field>
+                        </div>
+                        <div fxLayout="row" fxLayoutAlign="end" fxLayoutGap="10px">
+                            <button mat-raised-button color="primary" [disabled]="!customerFormGroup.valid">Save</button>
+                            <button mat-raised-button color="primary" (click)="resetForm()">Reset</button>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>

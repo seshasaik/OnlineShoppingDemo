@@ -13,6 +13,7 @@ import { AddCustomerComponent } from './component/add-customer/add-customer.comp
 import { EditCustomerComponent } from './component/edit-customer/edit-customer.component';
 import { DeleteCustomerComponent } from './component/delete-customer/delete-customer.component';
 import { ShowCustomerComponent } from './component/show-customer/show-customer.component';
+import { CustomerByIdAPIResolver } from './customer-by-id-apiresolver';
 
 
 @NgModule({
@@ -23,7 +24,7 @@ import { ShowCustomerComponent } from './component/show-customer/show-customer.c
     GlobalMaterialModule,
     FlexLayoutModule
   ],
-  providers: [CustomereService],
+  providers: [CustomereService, CustomerByIdAPIResolver],
   declarations: [SearchCustomerComponent, AddCustomerComponent, EditCustomerComponent, DeleteCustomerComponent, CustomerComponent, ShowCustomerComponent],
   entryComponents: [ShowCustomerComponent],
 

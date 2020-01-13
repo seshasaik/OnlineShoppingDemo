@@ -5,6 +5,7 @@ import { MatTableDataSource, MatDialog, MatDialogConfig } from '@angular/materia
 import { ShowCustomerComponent } from '../show-customer/show-customer.component';
 import { CustomerModelData } from '../show-customer/customer-model-data';
 import { UserGender } from 'src/app/model/user-gender.enum';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-customer-list',
@@ -19,7 +20,7 @@ export class CustomerComponent implements OnInit {
   feMaleCustomer = UserGender.FEMALE;
 
   customerModelData: CustomerModelData = { customer: null, title: '' };
-  constructor(private customerService: CustomereService, private showCustomerModel: MatDialog) {
+  constructor(private customerService: CustomereService, private showCustomerModel: MatDialog, private router: Router, private activatedRoute: ActivatedRoute) {
 
   }
 
@@ -32,7 +33,9 @@ export class CustomerComponent implements OnInit {
   }
 
   editCustomer(id: string): void {
-
+    this.router.navigate(['..', 'edit', id], {
+      relativeTo: this.activatedRoute
+    });
   }
 
   deleteCustomer(id: string): void {
