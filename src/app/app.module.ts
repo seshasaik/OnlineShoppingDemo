@@ -5,7 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { GlobalMaterialModule } from './global-material-module/global-material-module.module';
 import { AppRouterService } from './services/app-router.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { LoginComponent } from './login/login.component';
@@ -14,6 +14,9 @@ import { ForgetPasswordComponent } from './forget-password/forget-password.compo
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { TopMenuComponent } from './top-menu/top-menu.component';
 import { MessagingModule } from './feature/messaging/messaging.module';
+import { LoadingSpinnerComponent } from './global/loading-spinner/loading-spinner.component';
+import { LoadingSpinnerService } from './global/loading-spinner/loading-spinner.service';
+import { LoaderIntercepter } from './_interceptors/loader-intercepter';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,8 @@ import { MessagingModule } from './feature/messaging/messaging.module';
     ForgetPasswordComponent,
     SignUpComponent,
     HomeComponent,
-    TopMenuComponent
+    TopMenuComponent,
+    LoadingSpinnerComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +39,9 @@ import { MessagingModule } from './feature/messaging/messaging.module';
     AppRoutingModule,
     MessagingModule,
   ],
-  providers: [AppRouterService],
+  providers: [AppRouterService,
+    LoadingSpinnerService,
+    { provide: HTTP_INTERCEPTORS, useClass: LoaderIntercepter, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
