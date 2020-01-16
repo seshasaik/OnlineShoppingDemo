@@ -5,7 +5,7 @@ import { UserState } from './user-state.enum';
 
 export class Customer {
 
-    customerId: String;
+    customerId: String;    
     address: String;
     phone: String;
     email: String;

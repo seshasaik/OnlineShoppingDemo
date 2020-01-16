@@ -14,19 +14,15 @@ export class LoginComponent implements OnInit {
   authFormGroup: FormGroup;
   constructor(private route: Router, private authService : AuthService) {
     this.authFormGroup = new FormGroup({
-      "EmailOrMobile": new FormControl('', [Validators.required]),
+      "userName": new FormControl('', [Validators.required]),
       "password": new FormControl('', [Validators.required])
     });
 
 
   }
   login(): void {
-    if (this.authFormGroup.valid) {
-      var user = new User();
-      user.email = this.authFormGroup.get('EmailOrMobile').value;
-      user.phone = this.authFormGroup.get('EmailOrMobile').value;
-      user.password = this.authFormGroup.get("password").value;
-      this.authService.login(user);
+    if (this.authFormGroup.valid) {      
+      this.authService.login(this.authFormGroup.value);
 
     }
   }

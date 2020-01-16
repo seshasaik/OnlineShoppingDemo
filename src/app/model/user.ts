@@ -1,12 +1,10 @@
-export class User {
+import { Customer } from './customer';
 
-    loginId: String = "";
+export class User extends Customer {
+
+    userName: String = "";
     password: String = "";
     oldPassword: String = "";
-    address: String = "";
-    phone: String = "";
-    email: String = "";
-    billingAddress: String = "";
     selfRegistration: boolean = false;
 
 }

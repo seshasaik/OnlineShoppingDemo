@@ -41,7 +41,7 @@ export class AuthService {
   }
 
   login(user: User): void {
-    this.http.post<Customer>(this.baseAPIUrlServie.getURL("/customer/login"), user, {
+    this.http.post<Customer>(this.baseAPIUrlServie.getURL("/login"), user, {
       headers: new HttpHeaders({ 'contentType': 'application/json' })
     }).pipe(
       catchError(this.errorHandler<Customer>('login', null))
