@@ -15,3 +15,11 @@ mat-card {
     background-position: center;
     background-size: 100%;
 }
+
+mat-card-footer {
+    margin: 0px;
+}
+
+mat-card-footer>div {
+    padding: 5px 0px;
+}

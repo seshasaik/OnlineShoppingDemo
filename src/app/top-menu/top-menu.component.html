@@ -1,5 +1,23 @@
 <mat-toolbar>
-    <button mat-mini-fab (click)="toggleSideNav()" color="primary" isRoundButton="true">
-        <mat-icon>menu</mat-icon>
-    </button>
+    <div fxLayout fxLayoutAlign="space-between center" fxFlex="100%">
+        <div fxFlex="30%">
+            <button mat-mini-fab (click)="toggleSideNav()" color="primary" isRoundButton="true">
+                <mat-icon>menu</mat-icon>
+            </button>
+        </div>
+
+        <div fxLayout fxLayoutAlign="flex-end center" fxLayoutGap="10px">
+            <button mat-flat-button [matMenuTriggerFor]="menu">
+                <span>Login as : {{loginUser}}</span>
+            </button>
+            <mat-menu #menu="matMenu" xPosition="before">
+                <a mat-menu-item [routerLink]="[{outlets:{home:['settings','profile']}}]">Profile</a>
+                <mat-divider></mat-divider>
+                <a mat-menu-item [routerLink]="[{outlets:{home:['settings','changePassword']}}]">Change Password</a>
+                <mat-divider></mat-divider>
+                <a mat-menu-item>Logout</a>
+            </mat-menu>
+        </div>
+    </div>
+
 </mat-toolbar>

@@ -13,7 +13,7 @@ export class TopMenuComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  loginUser: String = "";
   @Output("sideNavToggleButtonStateChange") toggleSideNavEvent = new EventEmitter();
 
   toggleSideNav(): void {
