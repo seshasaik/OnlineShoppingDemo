@@ -1,1 +1,98 @@
-<p>profile works!</p>
+<div class="profile-container" fxLayout fxFlexAlign="center center" fxFlex="100%">
+    <mat-card fxFlex="100%">
+        <mat-card-title>
+            <h4>Profile</h4>
+        </mat-card-title>
+        <mat-card-content>
+            <form [formGroup]="profileFormGroup" fxLayout="row wrap" fxLayoutAlign="space-between center" fxLayoutGap="10px">
+                <div fxFlex="calc(50%-10px)">
+                    <mat-form-field>
+                        <input matInput placeholder="First Name" formControlName="firstName">
+                    </mat-form-field>
+                    <div class="form-field-errors" *ngIf="getFormGroupControls().firstName.invalid && (getFormGroupControls().firstName.touched || getFormGroupControls().firstName.dirty)">
+                        <span *ngIf="getFormGroupControls().firstName.hasError('required')">
+                            * First name is required
+                        </span>
+                    </div>
+                </div>
+
+                <div fxFlex="calc(50%-10px)">
+                    <mat-form-field>
+                        <input matInput placeholder="Middle Name" formControlName="middleName">
+                    </mat-form-field>
+                    <div>
+
+                    </div>
+                </div>
+
+                <div fxFlex="calc(50%-10px)">
+                    <mat-form-field>
+                        <input matInput placeholder="Last Name" formControlName="lastName">
+                    </mat-form-field>
+                    <div class="form-field-errors" *ngIf="getFormGroupControls().lastName.invalid && (getFormGroupControls().lastName.touched || getFormGroupControls().lastName.dirty)">
+                        <span *ngIf="getFormGroupControls().lastName.hasError('required')">
+                            * Last name is required
+                        </span>
+                    </div>
+                </div>
+                <div fxFlex="calc(50%-10px)">
+                    <mat-radio-group formControlName="gender">
+                        <mat-radio-button value="MALE">Male</mat-radio-button>
+                        <mat-radio-button value="FEMALE">FeMale</mat-radio-button>
+                    </mat-radio-group>
+                    <div class="form-field-errors" *ngIf="getFormGroupControls().gender.invalid && (getFormGroupControls().gender.touched || getFormGroupControls().gender.dirty)">
+                        <span *ngIf="getFormGroupControls().gender.hasError('required')">
+                            * Please check  gender
+                        </span>
+                    </div>
+                </div>
+
+
+                <div fxFlex="calc(50%-10px)">
+                    <mat-form-field>
+                        <input type="text" matInput placeholder="email" formControlName="email">
+                    </mat-form-field>
+                    <div class="form-field-errors" *ngIf="getFormGroupControls().email.invalid && (getFormGroupControls().email.touched || getFormGroupControls().email.dirty)">
+                        <span *ngIf="getFormGroupControls().email.hasError('required')">
+                            * Email is required
+                        </span>
+                        <span *ngIf="getFormGroupControls().email.hasError('email')">
+                            * Invalid Email
+                        </span>
+                    </div>
+                </div>
+
+
+                <div fxFlex="calc(50%-10px)">
+                    <mat-form-field>
+                        <input type="text" matInput placeholder="Mobile no" formControlName="phone">
+                    </mat-form-field>
+                    <div class="form-field-errors" *ngIf="getFormGroupControls().phone.invalid && (getFormGroupControls().phone.touched || getFormGroupControls().phone.dirty)">
+                        <span *ngIf="getFormGroupControls().phone.hasError('required')">
+                            * Mobile no is required
+                        </span>
+                        <span *ngIf="getFormGroupControls().phone.hasError('minlength')">
+                            * Mobile no should be minimum 10 character length
+                        </span>
+                    </div>
+                </div>
+
+                <div fxFlex="calc(100%-20px)">
+                    <mat-form-field>
+                        <textarea matInput placeholder="Billing Address" formControlName="address" rows="1"></textarea>
+                    </mat-form-field>
+                    <div class="form-field-errors" *ngIf="getFormGroupControls().address.invalid && (getFormGroupControls().address.touched || getFormGroupControls().address.dirty)">
+                        <span *ngIf="getFormGroupControls().address.hasError('required')">
+                        * Billing Address is required
+                    </span>
+                    </div>
+                </div>
+
+                <div fxFlex="calc(100%-20px)">
+                    <button mat-raised-button [disabled]="!profileFormGroup.valid">Update</button>
+                    <button mat-raised-button (click)="profileFormGroup.reset()">Reset</button>
+                </div>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>

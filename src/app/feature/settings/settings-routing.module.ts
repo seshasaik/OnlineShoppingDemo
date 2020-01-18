@@ -13,7 +13,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule],
-  declarations: [ChangePasswordComponent, ProfileComponent]
+  exports: [RouterModule],  
 })
 export class SettingsRoutingModule { }
