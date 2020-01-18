@@ -16,7 +16,9 @@ import { TopMenuComponent } from './top-menu/top-menu.component';
 import { MessagingModule } from './feature/messaging/messaging.module';
 import { LoadingSpinnerComponent } from './global/loading-spinner/loading-spinner.component';
 import { LoadingSpinnerService } from './global/loading-spinner/loading-spinner.service';
-import { LoaderIntercepter } from './_interceptors/loader-intercepter';
+import { LoaderIntercepter } from './_interceptors/loader-interceptor';
+import { JwtTokenInterceptor } from './_interceptors/jwt-token-interceptor';
+import { ErrorInterceptor } from './_interceptors/error-interceptor';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,9 @@ import { LoaderIntercepter } from './_interceptors/loader-intercepter';
   ],
   providers: [AppRouterService,
     LoadingSpinnerService,
-    { provide: HTTP_INTERCEPTORS, useClass: LoaderIntercepter, multi: true }],
+    { provide: HTTP_INTERCEPTORS, useClass: LoaderIntercepter, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: JwtTokenInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

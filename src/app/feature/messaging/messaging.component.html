@@ -1,4 +1,4 @@
-<div class="messaging-dialog" fxLayout="column" fxLayoutAlign *ngIf="messages.length > 0">
+<div class="messaging-dialog" fxLayout="column" fxLayoutAlign *ngIf="message && message.messages.length > 0">
     <div fxLayout fxLayoutAlign="space-between center">
         <div class="message-header">
             <p>Messages</p>
@@ -8,6 +8,6 @@
         </div>
     </div>
     <ul>
-        <li *ngFor="let message of messages"> {{message}}</li>
+        <li *ngFor="let message of message.messages"> {{message}}</li>
     </ul>
 </div>

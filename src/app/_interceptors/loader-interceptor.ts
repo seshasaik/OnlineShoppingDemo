@@ -8,7 +8,7 @@ export class LoaderIntercepter implements HttpInterceptor {
 
     private reqQueue: HttpRequest<any>[] = [];
     constructor(private loadingSprinnerService: LoadingSpinnerService) {
-        console.log("Loader Interceptor initiated");
+        // console.log("Loader Interceptor initiated");
     }
 
     removeRequest(req: HttpRequest<any>): void {

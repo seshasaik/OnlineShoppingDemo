@@ -7,6 +7,7 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
 import { ProfileComponent } from './profile/profile.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FlexModule } from '@angular/flex-layout';
+import { SettingsService } from './service/settings.service';
 
 
 
@@ -19,6 +20,7 @@ import { FlexModule } from '@angular/flex-layout';
     GlobalMaterialModule,
     SettingsRoutingModule,
   ],
+  providers: [SettingsService],
   declarations: [ChangePasswordComponent, ProfileComponent]
 })
 export class SettingsModule { }

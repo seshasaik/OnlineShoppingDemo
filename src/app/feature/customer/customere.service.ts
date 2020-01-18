@@ -6,6 +6,7 @@ import { Customer } from 'src/app/model/customer';
 import { Observable, from, of } from 'rxjs';
 import { tap, catchError } from 'rxjs/operators'
 import { MessagingService } from '../messaging/messaging.service';
+import { Message } from '../messaging/message';
 
 @Injectable()
 export class CustomereService {
@@ -35,9 +36,13 @@ export class CustomereService {
     }).pipe(
       catchError(this.errorHandler<Customer>('saveCustomer', null))
     ).subscribe((str) => {
-      if(str !== null && typeof str )
-      console.log(`message from server ${str}`)
-      this.messageService.addMessage(`Customer ${customer.firstName + ' ' + customer.lastName} added successfully`)
+      if (str !== null && typeof str)
+        console.log(`message from server ${str}`)
+
+      let message = new Message();
+      message.autoClose = true;
+      message.messages = [`Customer ${customer.firstName + ' ' + customer.lastName} added successfully`]
+      this.messageService.addMessage(message);
       setTimeout(() => {
         this.messageService.clearMessage();
       }, 3000);
@@ -55,7 +60,10 @@ export class CustomereService {
       // TODO: send the error to remote logging infrastructure
       console.error(error); // log to console instead
 
-      this.messageService.addMessage(`${operation} failed, Details ${error.message}`);
+      let message = new Message();
+      message.autoClose = true;
+      message.messages = [`${operation} failed, Details ${error.message}`]
+      this.messageService.addMessage(message);
 
       // Let the app keep running by returning an empty result.
       return of(result as T);

@@ -1,4 +1,5 @@
 import { Customer } from './customer';
+import { Role } from './role';
 
 export class User extends Customer {
 
@@ -6,5 +7,6 @@ export class User extends Customer {
     password: String = "";
     oldPassword: String = "";
     selfRegistration: boolean = false;
-
+    token:string=""
+    roles : Role[] = [];
 }

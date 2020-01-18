@@ -1,15 +1,16 @@
 import { Injectable } from '@angular/core';
 import { MessagingModule } from './messaging.module';
 import { Observable, Subject } from 'rxjs';
+import { Message } from './message';
 
 @Injectable()
 export class MessagingService {
 
-  private messages = new Subject<any>();
+  private messages = new Subject<Message>();
 
   constructor() { }
 
-  addMessage(message: any): void {
+  addMessage(message: Message): void {
     this.messages.next(message);
   }
 
@@ -17,7 +18,7 @@ export class MessagingService {
     this.messages.next();
   }
 
-  getMessage(): Observable<any> {
+  getMessage(): Observable<Message> {
     return this.messages.asObservable()
   }
 }

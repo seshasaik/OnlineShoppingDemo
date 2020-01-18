@@ -4,21 +4,21 @@ import { User } from '../model/user';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { BaseAPIURLService } from './base-apiurl.service';
-import { Customer } from '../model/customer';
 import { catchError } from 'rxjs/operators';
 import { MessagingService } from '../feature/messaging/messaging.service';
+import { Message } from '../feature/messaging/message';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  private currentUserSubject: BehaviorSubject<Customer>;
-  currentUser: Observable<Customer>;
+  private currentUserSubject: BehaviorSubject<User>;
+  currentUser: Observable<User>;
 
   constructor(private http: HttpClient, private router: Router, private baseAPIUrlServie: BaseAPIURLService, private messageService: MessagingService) {
     let user = localStorage.getItem("user");
-    this.currentUserSubject = new BehaviorSubject<Customer>(null);
+    this.currentUserSubject = new BehaviorSubject<User>(null);
     this.currentUser = this.currentUserSubject.asObservable();
     if (user == null || typeof user == "undefined") {
       this.router.navigate(['login']);
@@ -35,19 +35,19 @@ export class AuthService {
     return isExist;
   }
 
-  setUserInfo(customer: Customer): void {
-    localStorage.setItem("user", JSON.stringify(customer));
-    this.currentUserSubject.next(customer);
+  setUserInfo(user: User): void {
+    localStorage.setItem("user", JSON.stringify(user));
+    this.currentUserSubject.next(user);
   }
 
   login(user: User): void {
-    this.http.post<Customer>(this.baseAPIUrlServie.getURL("/login"), user, {
+    this.http.post<User>(this.baseAPIUrlServie.getURL("/login"), user, {
       headers: new HttpHeaders({ 'contentType': 'application/json' })
     }).pipe(
-      catchError(this.errorHandler<Customer>('login', null))
-    ).subscribe((customer) => {
+      catchError(this.errorHandler<User>('login', null))
+    ).subscribe((user) => {
 
-      this.setUserInfo(customer);
+      this.setUserInfo(user);
       this.router.navigate(['dashboard']);
     })
 
@@ -68,8 +68,11 @@ export class AuthService {
     return (error: any): Observable<T> => {
       // TODO: send the error to remote logging infrastructure
       console.error(error); // log to console instead
-
-      this.messageService.addMessage(`${operation} failed, Details ${error.message}`);
+      let message = new Message();
+      message.autoClose = true;
+      message.messages = [`${operation} failed, Details ${error.message}`]
+      this.messageService.addMessage(message);
+      
 
       // Let the app keep running by returning an empty result.
       return of(result as T);
