@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
-import { Product } from '../../model/product';
-import { Supplier } from '../../model/supplier';
+import { Product } from '../../../model/product';
+import { Supplier } from '../../../model/supplier';
+import { HttpClient, HttpEvent } from '@angular/common/http';
+import { BaseAPIURLService } from 'src/app/services/base-apiurl.service';
+import { Observable } from 'rxjs';
 
-@Injectable({
-  providedIn: 'root'
-})
-export class ProductServiceService {
+@Injectable()
+export class ProductService {
 
   products: Product[];
-  constructor() { }
+  constructor(private http:HttpClient, private baseApiUrlService:BaseAPIURLService) { }
 
   addProduct(product: Product): void {
     this.products.push(product);
@@ -30,8 +31,8 @@ export class ProductServiceService {
     return this.products.indexOf(product);
   }
 
-  listProduct(): Product[] {
-    return this.products;
+  listProduct(): Observable<Product[]> {
+    return this.http.get<Product[]>(this.baseApiUrlService.getURL("/product"));    
   }
 
   addSupplier(productId: number, supplier: Supplier): void {

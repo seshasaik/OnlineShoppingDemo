@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { AuthService } from '../services/auth.service';
 
 
 
@@ -9,9 +10,14 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class TopMenuComponent implements OnInit {
 
-  constructor() { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit() {
+    this.authService.currentUser.subscribe(user => {
+      if (user)
+        this.loginUser = user.userName;
+
+    })
   }
   loginUser: String = "";
   @Output("sideNavToggleButtonStateChange") toggleSideNavEvent = new EventEmitter();
@@ -20,4 +26,9 @@ export class TopMenuComponent implements OnInit {
     console.log("toggleSideNav Clicked");
     this.toggleSideNavEvent.emit("");
   }
+
+  logout(): void {
+    this.authService.logOut();
+  }
+
 }

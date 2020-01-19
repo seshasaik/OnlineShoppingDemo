@@ -4,7 +4,7 @@ import { Customer } from 'src/app/model/customer';
 import { MatTableDataSource, MatDialog, MatDialogConfig } from '@angular/material';
 import { ShowCustomerComponent } from '../show-customer/show-customer.component';
 import { CustomerModelData } from '../show-customer/customer-model-data';
-import { UserGender } from 'src/app/model/user-gender.enum';
+import { UserGender } from 'src/app/model/enums/user-gender.enum';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({

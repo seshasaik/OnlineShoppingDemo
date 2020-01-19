@@ -8,14 +8,14 @@
 
         <div fxLayout fxLayoutAlign="flex-end center" fxLayoutGap="10px">
             <button mat-flat-button [matMenuTriggerFor]="menu">
-                <span>Login as : {{loginUser}}</span>
+                <span>{{loginUser}}</span>
             </button>
             <mat-menu #menu="matMenu" xPosition="before">
                 <a mat-menu-item [routerLink]="[{outlets:{home:['settings','profile']}}]">Profile</a>
                 <mat-divider></mat-divider>
                 <a mat-menu-item [routerLink]="[{outlets:{home:['settings','changePassword']}}]">Change Password</a>
                 <mat-divider></mat-divider>
-                <a mat-menu-item>Logout</a>
+                <a mat-menu-item (click)="logout()">Logout</a>
             </mat-menu>
         </div>
     </div>

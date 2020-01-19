@@ -46,7 +46,7 @@ export class AuthService {
     }).pipe(
       catchError(this.errorHandler<User>('login', null))
     ).subscribe((user) => {
-
+      
       this.setUserInfo(user);
       this.router.navigate(['dashboard']);
     })

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Customer } from 'src/app/model/customer';
-import { UserGender } from 'src/app/model/user-gender.enum';
+import { UserGender } from 'src/app/model/enums/user-gender.enum';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { CustomereService } from '../../customere.service';
 

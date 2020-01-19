@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { UserGender } from 'src/app/model/user-gender.enum';
+import { UserGender } from 'src/app/model/enums/user-gender.enum';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { CustomerModelData } from './customer-model-data';
 import { Customer } from 'src/app/model/customer';

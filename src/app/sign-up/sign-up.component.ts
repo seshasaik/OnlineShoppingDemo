@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { UserGender } from '../model/user-gender.enum'
+import { UserGender } from '../model/enums/user-gender.enum'
 import { SignUpService } from './sign-up.service';
 import { User } from '../model/user';
 

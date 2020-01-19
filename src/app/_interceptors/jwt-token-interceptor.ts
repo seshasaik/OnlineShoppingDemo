@@ -10,7 +10,8 @@ export class JwtTokenInterceptor implements HttpInterceptor {
     token: string = "";
     constructor(private authservice: AuthService) {
         this.authservice.currentUser.subscribe((user) => {
-            this.token = user.token;
+            if (user)
+                this.token = user.token;
         })
     }
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {

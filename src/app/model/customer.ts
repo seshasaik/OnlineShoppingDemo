@@ -1,7 +1,7 @@
 
 import { Account } from './account';
-import { UserGender } from './user-gender.enum';
-import { UserState } from './user-state.enum';
+import { UserGender } from './enums/user-gender.enum';
+import { UserState } from './enums/user-state.enum';
 
 export class Customer {
 
