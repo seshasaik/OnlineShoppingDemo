@@ -1,0 +1,68 @@
+<div>
+    <mat-card>
+        <mat-card-title>
+            <h4>Create Supplier</h4>
+        </mat-card-title>
+        <mat-card-content>
+            <form [formGroup]="supplierForm" (ngSubmit)="saveSupplier()">
+                <div class="formControlContainer" fxLayout="row wrap" fxLayoutAlign="space-around center" fxLayoutGap="15px">
+                    <div fxFlex="calc(50% - 15px)">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Name</mat-label>
+                            <input matInput formControlName="name" placeholder="Name" required>
+                            <mat-error *ngIf="supplierFormControl.name.invalid && (supplierFormControl.name.pristine || supplierFormControl.name.dirty)">
+                                <span *ngIf="supplierFormControl.name.hasError('required')">Name is required</span>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <div fxFlex="calc(50% - 15px)">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Reg number</mat-label>
+                            <input matInput formControlName="regNumber" placeholder="Reg number">
+                            <mat-error *ngIf="supplierFormControl.regNumber.invalid && (supplierFormControl.regNumber.pristine || supplierFormControl.regNumber.dirty)">
+                                <span *ngIf="supplierFormControl.regNumber.hasError('required')">Reg number is required</span>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <div fxFlex="calc(50% - 15px)">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Mobile</mat-label>
+                            <input matInput formControlName="mobile" placeholder="Mobile">
+                            <mat-error *ngIf="supplierFormControl.mobile.invalid && (supplierFormControl.mobile.pristine || supplierFormControl.mobile.dirty)">
+                                <span *ngIf="supplierFormControl.mobile.hasError('required')">Reg number is required</span>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <div fxFlex="calc(50% - 15px)">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Phone</mat-label>
+                            <input matInput formControlName="phone" placeholder="Phone">
+                            <!-- <mat-error *ngIf="name.invalid && (name.pristine || name.dirty)"></mat-error> -->
+                        </mat-form-field>
+                    </div>
+
+                    <div fxFlex="calc(100% - 15px)">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Address</mat-label>
+                            <textarea matInput formControlName="address" matAutosize="true" matAutosizeMinRows="2" placeholder="Address"></textarea>
+                            <mat-error *ngIf="supplierFormControl.address.invalid && (supplierFormControl.address.pristine || supplierFormControl.address.dirty)">
+                                <span *ngIf="supplierFormControl.address.hasError('required')">Address is required</span>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <div fxFlex="calc(100% - 15px)">
+                        <div fxLayout fxLayoutAlign="flex-end center" fxLayoutGap="20px">
+                            <button mat-raised-button [disabled]="!supplierForm.valid">Save</button>
+                            <button mat-raised-button class="mr-15" type="button" (click)="supplierForm.reset()">Reset</button>
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>

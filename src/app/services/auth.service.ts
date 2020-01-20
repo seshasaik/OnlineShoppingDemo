@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, of } from 'rxjs';
+import { BehaviorSubject, Observable, of, throwError } from 'rxjs';
 import { User } from '../model/user';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { BaseAPIURLService } from './base-apiurl.service';
-import { catchError } from 'rxjs/operators';
+import { catchError, switchMap, tap } from 'rxjs/operators';
 import { MessagingService } from '../feature/messaging/messaging.service';
 import { Message } from '../feature/messaging/message';
+import { APIResponse } from '../model/apiresponse';
 
 @Injectable({
   providedIn: 'root'
@@ -40,16 +41,21 @@ export class AuthService {
     this.currentUserSubject.next(user);
   }
 
-  login(user: User): void {
-    this.http.post<User>(this.baseAPIUrlServie.getURL("/login"), user, {
+  login(user: User): Observable<boolean> {
+    return this.http.post(this.baseAPIUrlServie.getURL("/login"), user, {
       headers: new HttpHeaders({ 'contentType': 'application/json' })
     }).pipe(
-      catchError(this.errorHandler<User>('login', null))
-    ).subscribe((user) => {
-      
-      this.setUserInfo(user);
-      this.router.navigate(['dashboard']);
-    })
+      switchMap<User, Observable<boolean>>((user: User) => {
+        let status: boolean = false;
+        if (user) {
+          status = true
+          this.setUserInfo(user);
+        }
+
+        return of<boolean>(status);
+      }),
+      catchError(this.errorHandler<boolean>('login', false))
+    );
 
   }
 
@@ -68,11 +74,18 @@ export class AuthService {
     return (error: any): Observable<T> => {
       // TODO: send the error to remote logging infrastructure
       console.error(error); // log to console instead
+
       let message = new Message();
       message.autoClose = true;
-      message.messages = [`${operation} failed, Details ${error.message}`]
+
+      if (error.status === 404 && error.error.code === 404) {
+        message.timeinMills = 4 * 1000;
+        message.messages.push(error.error.message);
+      } else {
+        message.messages = [`${operation} failed, Details ${error.message}`]
+      }
       this.messageService.addMessage(message);
-      
+
 
       // Let the app keep running by returning an empty result.
       return of(result as T);

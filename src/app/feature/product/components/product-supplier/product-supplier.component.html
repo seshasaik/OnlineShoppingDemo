@@ -1,0 +1,23 @@
+<div fxLayout="column" fxLayoutAlign="center space-around" fxLayoutGap="15px">
+    <div fxLayout fxLayoutAlign>
+        <div fxLayout fxLayoutAlign="space-around">
+            <div>
+                <label>Name : </label> {{supplier.name}}
+            </div>
+            <div>
+                <label>Regno : </label>{{supplier.regNumber}}
+            </div>
+        </div>
+        <div fxFlex="10%">
+            <button type="button" (click)="removeProduct()"><mat-icon>remove</mat-icon></button>
+        </div>
+    </div>
+    <div>
+        <div>
+            <label>Mobile : </label> {{supplier.mobile}}
+        </div>
+        <div>
+            <label>Phone : </label>{{supplier.phone}}
+        </div>
+    </div>
+</div>

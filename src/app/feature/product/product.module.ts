@@ -12,11 +12,12 @@ import { SearchProductComponent } from './components/search-product/search-produ
 import { GlobalMaterialModule } from 'src/app/global-material-module/global-material-module.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ProductSupplierComponent } from './components/product-supplier/product-supplier.component';
 
 
 
 @NgModule({
-  declarations: [ProductComponent, ViewProductComponent, EditProductComponent, AddProductComponent, SearchProductComponent],
+  declarations: [ProductComponent, ViewProductComponent, EditProductComponent, AddProductComponent, SearchProductComponent, ProductSupplierComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,

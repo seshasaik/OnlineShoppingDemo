@@ -194,14 +194,14 @@
                 "isActiveRoute": false,
                 "subRoutes": [],
                 "routeDisplayName": "Suppliers list",
-                "route": "",
+                "route": "list",
                 "routeAccessFor": []
             },
             {
                 "isActiveRoute": false,
                 "subRoutes": [],
                 "routeDisplayName": "Add Supplier",
-                "route": "",
+                "route": "add",
                 "routeAccessFor": []
             }
         ],

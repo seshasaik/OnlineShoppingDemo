@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { User } from 'src/app/model/user';
 import { AuthService } from '../services/auth.service';
 
 @Component({
@@ -12,7 +11,7 @@ import { AuthService } from '../services/auth.service';
 export class LoginComponent implements OnInit {
 
   authFormGroup: FormGroup;
-  constructor(private route: Router, private authService : AuthService) {
+  constructor(private route: Router, private authService: AuthService) {
     this.authFormGroup = new FormGroup({
       "userName": new FormControl('', [Validators.required]),
       "password": new FormControl('', [Validators.required])
@@ -21,8 +20,18 @@ export class LoginComponent implements OnInit {
 
   }
   login(): void {
-    if (this.authFormGroup.valid) {      
-      this.authService.login(this.authFormGroup.value);
+    if (this.authFormGroup.valid) {
+      this.authService.login(this.authFormGroup.value).subscribe((status) => {
+        if (status) {
+          this.route.navigate(['dashboard']);
+        } else {
+          this.authFormGroup.reset({
+            'userName': '',
+            'password': ''
+          });
+        }
+
+      });
 
     }
   }

@@ -42,7 +42,7 @@
 
             <div fxFlex="calc(100%-15px)">
                 <p class="subHeading">Features</p>
-                <table formArrayName="features">
+                <table id="featuresTable" formArrayName="features">
                     <thead>
                         <tr>
                             <th>#</th>
@@ -58,14 +58,14 @@
                                 <span>{{i+1}}</span>
                             </td>
                             <td>
-
-                                <textarea matInput formControlName="feature" matAutosize="true" matAutosizeMinRows="2" placeholder="Feature"></textarea>
-
+                                <div>
+                                    <textarea formControlName="feature" rows="1" placeholder="Feature"></textarea>
+                                </div>
                             </td>
                             <td>
-
-                                <input matInput formControlName="order" placeholder="order">
-
+                                <div>
+                                    <input formControlName="order" placeholder="order">
+                                </div>
                             </td>
                             <td>
                                 <div fxLayout fxLayoutAlign="space-around center" fxLayoutGap="10px">
@@ -83,12 +83,21 @@
                     </tbody>
                 </table>
             </div>
-
-
             <div fxFlex="calc(100%-15px)">
                 <p class="subHeading">Supplier</p>
-                <table formArrayName="suppliers">
-
+                <table>
+                    <tbody>
+                        <tr *ngFor="let supplier of suppliers; let i = index;" [formGroupName]="i">
+                            <td>
+                                <app-product-supplier [supplier]="supplier" (remove)="removeSupplier(i)"></app-product-supplier>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td [ngClass]="{'noDataFound': suppliers.length === 0, 'addSupplier': suppliers.length}">
+                                <button mat-mini-fab type="button" (click)="openSupplierModle()"><mat-icon>add</mat-icon></button>
+                            </td>
+                        </tr>
+                    </tbody>
                 </table>
             </div>
 

@@ -11,6 +11,7 @@ import { Supplier } from 'src/app/model/supplier';
 export class AddProductComponent implements OnInit {
 
   productForm: FormGroup;
+  suppliers: Supplier[] = [];
   constructor(private productService: ProductService, private fb: FormBuilder) { }
 
   ngOnInit() {
@@ -19,8 +20,6 @@ export class AddProductComponent implements OnInit {
       "description": new FormControl('', [Validators.required]),
       "status": new FormControl('', [Validators.required]),
       "features": this.fb.array([
-      ]),
-      "suppliers": this.fb.array([
       ])
     })
 
@@ -29,7 +28,7 @@ export class AddProductComponent implements OnInit {
 
   // feature control
   get features() {
-    
+
     return this.productForm.get('features') as FormArray;
   }
 
@@ -44,23 +43,16 @@ export class AddProductComponent implements OnInit {
     this.features.removeAt(featureIndx);
   }
 
-  // Supplier control
-  get suppliers() {
-    return this.productForm.get('suppliers') as FormArray;
-  }
-
   addSupplier(supplier: Supplier) {
-    this.suppliers.push(this.fb.group({
-      "id": this.fb.control(supplier.id),
-      "name": this.fb.control(supplier.name),
-      "mobile": this.fb.control(supplier.mobile),
-      "phone": this.fb.control(supplier.phone),
-      "regNumber": this.fb.control(supplier.regNumber)
-    }))
+    this.suppliers.push(supplier)
   }
 
   removeSupplier(indx: number) {
-    this.suppliers.removeAt(indx);
+    this.suppliers.splice(indx, 1);
+  }
+
+  openSupplierModle() {
+
   }
 
 }

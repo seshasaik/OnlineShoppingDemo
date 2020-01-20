@@ -21,6 +21,19 @@ mat-card-title {
     text-align: center;
 }
 
+mat-card-title h4 {
+    margin: 5px 0px;
+    font-family: Roboto, serif;
+    text-align: left;
+    padding-left: 5px;
+    color: #5bd8e4;
+    letter-spacing: 0.07rem;
+}
+
 .customer-detail-dialog .mat-dialog-container {
     padding: 0px !important;
+}
+
+.mr-15 {
+    margin-right: 15px !important;
 }
