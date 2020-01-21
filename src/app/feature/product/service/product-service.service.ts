@@ -3,16 +3,26 @@ import { Product } from '../../../model/product';
 import { Supplier } from '../../../model/supplier';
 import { HttpClient, HttpEvent } from '@angular/common/http';
 import { BaseAPIURLService } from 'src/app/services/base-apiurl.service';
-import { Observable } from 'rxjs';
+import { Observable, of, throwError } from 'rxjs';
+import { switchMap, catchError } from 'rxjs/operators';
 
 @Injectable()
 export class ProductService {
 
   products: Product[];
-  constructor(private http:HttpClient, private baseApiUrlService:BaseAPIURLService) { }
+  constructor(private http: HttpClient, private baseApiUrlService: BaseAPIURLService) { }
 
-  addProduct(product: Product): void {
-    this.products.push(product);
+  addProduct(product: Product) {
+    // this.products.push(product);
+    return this.http.post(this.baseApiUrlService.getURL("/product"), product).pipe(
+      switchMap((status: string) => {
+        if (status) {
+          return of(true);
+        }
+        return throwError("error")
+      }),
+      catchError(this.handleError<boolean>("addProduct", false))
+    );
   }
 
   removeProduct(productIndex: number): void {
@@ -32,7 +42,7 @@ export class ProductService {
   }
 
   listProduct(): Observable<Product[]> {
-    return this.http.get<Product[]>(this.baseApiUrlService.getURL("/product"));    
+    return this.http.get<Product[]>(this.baseApiUrlService.getURL("/product"));
   }
 
   addSupplier(productId: number, supplier: Supplier): void {
@@ -52,6 +62,12 @@ export class ProductService {
   removeSupplier(productId: number, supplierIndex: number): boolean {
     var supplier = this.products[productId].suppliers.splice(supplierIndex);
     return supplier.length > 0;
+  }
+
+  private handleError<T>(operation = "operation", result?: T) {
+    return (error: any) => {
+      return of(result as T);
+    }
   }
 
 }

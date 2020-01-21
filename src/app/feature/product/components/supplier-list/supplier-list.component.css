@@ -1,0 +1,61 @@
+.product-list-show {
+    opacity: 1 !important;
+}
+
+.product-list-outer {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    background-color: rgba(63, 63, 63, 0.26);
+    transition: opacity 1S linear;
+    height: 100%;
+    width: 100%;
+}
+
+.product-list-container {
+    position: relative;
+    margin: 5% 10% auto;
+    background-color: #ffffff;
+}
+
+.product-list-content {
+    font-family: Roboto, sans-serif;
+    margin: 0;
+}
+
+.product-list-header {
+    background-color: #1466c5;
+    color: #ffffff;
+}
+
+.product-list-body,
+.product-list-footer {
+    margin: 5px 10px;
+}
+
+.product-list-header h4 {
+    font-size: 20px;
+    letter-spacing: 0.1rem;
+    margin: 10px auto;
+    width: 100%;
+    padding-left: 10px;
+    line-height: 30px;
+}
+
+.product-list-header div {
+    margin-right: 5px;
+    color: #fff;
+    align-self: center;
+    cursor: pointer;
+}
+
+table {
+    width: 100%;
+}
+
+.mat-column-select {
+    overflow: initial;
+}

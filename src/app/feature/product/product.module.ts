@@ -13,11 +13,13 @@ import { GlobalMaterialModule } from 'src/app/global-material-module/global-mate
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ProductSupplierComponent } from './components/product-supplier/product-supplier.component';
+import { SupplierService } from '../supplier/service/supplier.service';
+import { SupplierListComponent } from './components/supplier-list/supplier-list.component';
 
 
 
 @NgModule({
-  declarations: [ProductComponent, ViewProductComponent, EditProductComponent, AddProductComponent, SearchProductComponent, ProductSupplierComponent],
+  declarations: [ProductComponent, ViewProductComponent, EditProductComponent, AddProductComponent, SearchProductComponent, ProductSupplierComponent, SupplierListComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,
@@ -26,7 +28,7 @@ import { ProductSupplierComponent } from './components/product-supplier/product-
     ProductRoutingModule
   ],
   providers: [
-    ProductService
+    ProductService, SupplierService
   ]
 })
 export class ProductModule { }

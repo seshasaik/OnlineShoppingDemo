@@ -13,8 +13,8 @@ export class SupplierService {
 
   constructor(private http: HttpClient, private baseApiService: BaseAPIURLService, private messaingServie: MessagingService) { }
 
-  getSuppliers(): Observable<Supplier> {
-    return this.http.get<Supplier>(this.baseApiService.getURL("/supplier"));
+  getSuppliers(): Observable<Supplier[]> {
+    return this.http.get<Supplier[]>(this.baseApiService.getURL("/supplier"));
   }
 
   addSupplier(supplier: Supplier): Observable<boolean> {
