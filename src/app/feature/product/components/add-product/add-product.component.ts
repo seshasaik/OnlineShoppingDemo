@@ -16,6 +16,8 @@ export class AddProductComponent implements OnInit {
   supplierListModelStatus: boolean = false;
   productForm: FormGroup;
   suppliers: Supplier[] = [];
+
+  existedSupplierIds: string[] = [];
   // featuresAtIndx
 
   @ViewChild("confirmationDialog", {
@@ -33,7 +35,7 @@ export class AddProductComponent implements OnInit {
       "status": new FormControl('', [Validators.required]),
       "features": this.fb.array([
       ])
-    })
+    }, { updateOn: 'blur' })
 
 
   }
@@ -56,7 +58,7 @@ export class AddProductComponent implements OnInit {
       this.features.push(this.fb.group({
         "feature": this.fb.control('', [Validators.required]),
         "order": this.fb.control('', [Validators.required])
-      }));
+      }, { updateOn: 'change' }));
   }
 
   removeFeature(featureIndx: number) {
@@ -84,9 +86,9 @@ export class AddProductComponent implements OnInit {
     })
   }
 
-  addSupplier(supplier: Supplier) {
-    this.suppliers.push(supplier)
-  }
+  // addSupplier(supplier: Supplier) {
+  //   this.suppliers.push(supplier)
+  // }
 
   removeSupplier(indx: number) {
     this.confirmationDialogRef = this.confirmationDialog.open(this.confirmationDialogTemplateRef, {
@@ -107,6 +109,9 @@ export class AddProductComponent implements OnInit {
 
   openSupplierModle() {
     this.supplierListModelStatus = true;
+    this.existedSupplierIds = this.suppliers.map((suplier) => {
+      return suplier.id;
+    })
   }
 
   closeSupplierModel($event) {
@@ -121,6 +126,9 @@ export class AddProductComponent implements OnInit {
         }).length;
       })
     this.suppliers = this.suppliers.concat(supplierList);
+    this.existedSupplierIds = this.suppliers.map((suplier) => {
+      return suplier.id;
+    })
   }
 
 

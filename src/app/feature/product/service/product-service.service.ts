@@ -5,21 +5,24 @@ import { HttpClient, HttpEvent } from '@angular/common/http';
 import { BaseAPIURLService } from 'src/app/services/base-apiurl.service';
 import { Observable, of, throwError } from 'rxjs';
 import { switchMap, catchError } from 'rxjs/operators';
+import { MessagingService } from '../../messaging/messaging.service';
+import { Message } from '../../messaging/message';
 
 @Injectable()
 export class ProductService {
 
   products: Product[];
-  constructor(private http: HttpClient, private baseApiUrlService: BaseAPIURLService) { }
+  constructor(private http: HttpClient, private baseApiUrlService: BaseAPIURLService, private messageSerive: MessagingService) { }
 
   addProduct(product: Product) {
     // this.products.push(product);
     return this.http.post(this.baseApiUrlService.getURL("/product"), product).pipe(
       switchMap((status: string) => {
-        if (status) {
-          return of(true);
-        }
-        return throwError("error")
+        let message = new Message();
+        message.messages.push("product saved successfully");
+        message.timeinMills = 5 * 1000;
+        this.messageSerive.addMessage(message);
+        return of(true);
       }),
       catchError(this.handleError<boolean>("addProduct", false))
     );

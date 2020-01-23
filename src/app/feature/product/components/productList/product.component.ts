@@ -1,25 +1,41 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { ProductService } from '../../service/product-service.service';
 import { MatTableDataSource } from '@angular/material';
 import { Product } from 'src/app/model/product';
+import { ProductFeature } from 'src/app/model/product-feature';
+import { trigger, state, style, transition, animate } from '@angular/animations';
 
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
-  styleUrls: ['./product.component.css']
+  styleUrls: ['./product.component.css'],
+  animations: [
+    trigger('moreDetailExpand',
+      [
+        state('collapsed', style({ height: '0px', minHeight: '0' })),
+        state('expanded', style({ height: '*' })),
+        transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
+      ])
+  ]
 })
 export class ProductComponent implements OnInit {
 
   constructor(private route: Router,
-    private productService: ProductService) { }
+    private productService: ProductService, private activeRoute: ActivatedRoute) { }
 
-  products: MatTableDataSource<Product>;
+  productsDataSource: MatTableDataSource<Product>;
   isSearchContainerOpend: boolean = false;
-  column :string[] = []
+  columnToDisplay: string[] = ['sno', 'name', 'status', 'action'];
+  expandbleRow: Product | null = null;
+
+
   ngOnInit() {
-    this.productService.listProduct().subscribe(productList =>
-      this.products = new MatTableDataSource(productList)
+    this.productsDataSource = new MatTableDataSource();
+    this.productService.listProduct().subscribe(productList => {
+      this.productsDataSource.data = productList;
+      this.productsDataSource._updateChangeSubscription;
+    }
     );
   }
 
@@ -28,7 +44,13 @@ export class ProductComponent implements OnInit {
   }
 
   addProduct(): void {
-    this.route.navigate([{ outlets: { home: ['product', 'add'] } }]);
+    this.route.navigate(['..', 'add'], {
+      relativeTo: this.activeRoute
+    });
+  }
+
+  sortFeatures(features: ProductFeature[]) {
+    return features.sort((feature1, feature2) => feature1.order - feature2.order)
   }
 
 }

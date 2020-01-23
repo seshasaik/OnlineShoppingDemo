@@ -1,11 +1,10 @@
 <mat-toolbar>
-    <div fxLayout fxLayoutAlign="space-between center" fxFlex="100%">
-        <div fxFlex="30%">
+    <div fxLayout="row" fxLayoutAlign="space-between center" fxFlex="100%">
+        <div>
             <button mat-mini-fab (click)="toggleSideNav()" color="primary" isRoundButton="true">
                 <mat-icon>menu</mat-icon>
             </button>
         </div>
-
         <div fxLayout fxLayoutAlign="flex-end center" fxLayoutGap="10px">
             <button mat-flat-button [matMenuTriggerFor]="menu">
                 <span>{{loginUser}}</span>

@@ -59,3 +59,11 @@ table {
 .mat-column-select {
     overflow: initial;
 }
+
+.noRecordFound {
+    padding: 0px 30px;
+}
+
+.noRecordFound h5 {
+    text-align: center;
+}

@@ -17,6 +17,15 @@ export class SupplierService {
     return this.http.get<Supplier[]>(this.baseApiService.getURL("/supplier"));
   }
 
+  getSuppliersByExculdeExisted(suppliersIds: string[]): Observable<Supplier[]> {
+    return this.http.get<Supplier[]>(this.baseApiService.getURL("/supplier/filterd"), {
+      params: {
+        "supplierIds": suppliersIds.join(",")
+      }
+
+    });
+  }
+
   addSupplier(supplier: Supplier): Observable<boolean> {
     return this.http.post(this.baseApiService.getURL("/supplier"), supplier, {
       responseType: 'text'

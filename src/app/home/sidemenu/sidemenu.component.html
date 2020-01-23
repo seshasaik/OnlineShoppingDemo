@@ -1,0 +1,19 @@
+<div fxLayout="column" fxLayouAling="flex-start stretch" class="side-menu-content-container">
+    <div *ngFor="let userRoute of userRoutes; let i = index">
+        <div>
+            <p (click)="expandSideMenu(i)">
+                {{userRoute.routeDisplayName}}
+            </p>
+        </div>
+        <ul [ngClass]="{'active': i === currentSelection}">
+            <li>
+                <a [routerLink]="[{outlets: { home : [userRoute.route]}}]">{{userRoute.routeDisplayName}}</a>
+            </li>
+            <ng-container *ngIf="userRoute.subRoutes.length > 0">
+                <li *ngFor="let subUserRoute of userRoute.subRoutes" routerLinkActive="router-link-active">
+                    <a [routerLink]="[{outlets: { home : [userRoute.route, subUserRoute.route]}}]">{{subUserRoute.routeDisplayName}}</a>
+                </li>
+            </ng-container>
+        </ul>
+    </div>
+</div>

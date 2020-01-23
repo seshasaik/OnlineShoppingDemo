@@ -2,6 +2,48 @@
     height: 100%;
 }
 
+::ng-deep .mat-drawer-inner-container {
+    min-width: 100%;
+}
+
+::ng-deep .mat-drawer {
+    width: 200px;
+}
+
+.side-bar-header-max {
+    position: absolute;
+    height: 64px;
+    width: 100%;
+    background: #f5f5f5;
+    color: rgba(0, 0, 0, .87);
+}
+
+.side-bar-header-max h2 {
+    margin: 0;
+    line-height: 4rem;
+}
+
 .main-app-container {
     margin: 10px;
+}
+
+mat-accordion a {
+    text-decoration: unset;
+    cursor: pointer;
+}
+
+.router-link-active {
+    background-color: rgb(118, 0, 228);
+}
+
+.router-link-active a {
+    color: rgb(255, 255, 255);
+}
+
+::ng-deep .mat-expansion-panel-body {
+    padding: 0 10px 16px 20px !important
+}
+
+::ng-deep .mat-expansion-panel-body mat-list {
+    width: 100%;
 }

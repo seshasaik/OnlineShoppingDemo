@@ -16,10 +16,14 @@ export class SupplierListComponent implements OnInit {
 
   columnsToDisplay = ['select', 'name', 'regNumber', 'mobile'];
 
-  height : number = window.outerHeight;
+  height: number = window.outerHeight;
 
   @Input("isOpen")
   modelVisibilityStatus: boolean = false;
+
+
+  @Input("existedSupplierIds")
+  existingSupplierIds: string[] = [];
 
   @Output()
   closeModel: EventEmitter<Supplier[]> = new EventEmitter<Supplier[]>()
@@ -28,15 +32,20 @@ export class SupplierListComponent implements OnInit {
   selection: SelectionModel<Supplier>
 
   ngOnInit() {
-    this.supplierService.getSuppliers().subscribe((supplierList) => {
+
+    const subscriber = (supplierList) => {
       this.supplierDataSource.data = supplierList;
       this.supplierDataSource._updateChangeSubscription()
     }
-
-    );
+    if (this.existingSupplierIds.length)
+      this.supplierService.getSuppliersByExculdeExisted(this.existingSupplierIds).subscribe(subscriber);
+    else
+      this.supplierService.getSuppliers().subscribe(subscriber);
     const initialSelection = [];
     const allowMultiSelect = true;
     this.selection = new SelectionModel<Supplier>(allowMultiSelect, initialSelection);
+    
+
   }
 
 

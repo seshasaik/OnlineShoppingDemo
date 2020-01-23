@@ -3,25 +3,31 @@
         <div class="side-bar-header-max">
             <h2>Online shoping</h2>
         </div>
-        <mat-accordion>
-            <mat-expansion-panel *ngFor="let userRoute of userRoutes">
+        <app-sidemenu></app-sidemenu>
+
+
+
+
+        <!-- <mat-accordion>
+            <mat-expansion-panel *ngFor="let userRoute of userRoutes; let i = index" [id]="i" [expanded]="i === currentPanelId">
                 <mat-expansion-panel-header>
                     <mat-panel-title>{{userRoute.routeDisplayName}}</mat-panel-title>
                 </mat-expansion-panel-header>
                 <mat-list>
 
-                    <mat-list-item *ngIf="userRoute.subRoutes.length == 0">
+                    <mat-list-item *ngIf="userRoute.subRoutes.length == 0" routerLinkActive="router-link-active">
                         <a [routerLink]="[{outlets: { home : [userRoute.route]}}]">{{userRoute.routeDisplayName}}</a>
                     </mat-list-item>
 
                     <ng-container *ngIf="userRoute.subRoutes.length > 0">
-                        <mat-list-item *ngFor="let subUserRoute of userRoute.subRoutes">
+                        <mat-list-item *ngFor="let subUserRoute of userRoute.subRoutes" routerLinkActive="router-link-active">
                             <a [routerLink]="[{outlets: { home : [userRoute.route, subUserRoute.route]}}]">{{subUserRoute.routeDisplayName}}</a>
                         </mat-list-item>
                     </ng-container>
+
                 </mat-list>
             </mat-expansion-panel>
-        </mat-accordion>
+        </mat-accordion> -->
     </mat-sidenav>
     <mat-sidenav-content>
         <app-top-menu (sideNavToggleButtonStateChange)="toggleSideMenuContainer($event)"></app-top-menu>

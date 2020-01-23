@@ -10,7 +10,7 @@
                 </div>
             </div>
             <div class="product-list-body">
-                <div>
+                <div *ngIf="supplierDataSource.data.length; else noRecord">
                     <table mat-table [dataSource]="supplierDataSource">
                         <ng-container matColumnDef="select">
                             <th mat-header-cell *matHeaderCellDef>
@@ -44,9 +44,14 @@
                         <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
                     </table>
                 </div>
+                <ng-template #noRecord>
+                    <div class="noRecordFound">
+                        <h5>No records found</h5>
+                    </div>
+                </ng-template>
             </div>
             <div class="product-list-footer" fxFlex fxLayoutAlign="flex-end center" fxLayoutGap="20px">
-                <button mat-raised-button type="button" (click)="addSelectedSupplier()">Okay</button>
+                <button mat-raised-button type="button" (click)="addSelectedSupplier()" [disabled]="!supplierDataSource.data.length">Add</button>
                 <button mat-raised-button type="button" (click)="dismissModel()">Cancel</button>
             </div>
         </div>

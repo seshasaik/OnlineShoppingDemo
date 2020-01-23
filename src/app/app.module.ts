@@ -9,16 +9,16 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { LoginComponent } from './login/login.component';
-import { HomeComponent } from './home/home.component';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
-import { TopMenuComponent } from './top-menu/top-menu.component';
 import { MessagingModule } from './feature/messaging/messaging.module';
 import { LoadingSpinnerComponent } from './global/loading-spinner/loading-spinner.component';
 import { LoadingSpinnerService } from './global/loading-spinner/loading-spinner.service';
 import { LoaderIntercepter } from './_interceptors/loader-interceptor';
 import { JwtTokenInterceptor } from './_interceptors/jwt-token-interceptor';
 import { ErrorInterceptor } from './_interceptors/error-interceptor';
+import { HomeModule } from './home/home.module';
+
 
 @NgModule({
   declarations: [
@@ -26,8 +26,6 @@ import { ErrorInterceptor } from './_interceptors/error-interceptor';
     LoginComponent,
     ForgetPasswordComponent,
     SignUpComponent,
-    HomeComponent,
-    TopMenuComponent,
     LoadingSpinnerComponent
   ],
   imports: [
@@ -38,8 +36,10 @@ import { ErrorInterceptor } from './_interceptors/error-interceptor';
     HttpClientModule,
     BrowserAnimationsModule,
     GlobalMaterialModule,
+    HomeModule,
     AppRoutingModule,
     MessagingModule,
+
   ],
   providers: [AppRouterService,
     LoadingSpinnerService,
