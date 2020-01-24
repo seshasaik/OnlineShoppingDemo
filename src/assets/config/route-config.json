@@ -75,21 +75,14 @@
                 "isActiveRoute": false,
                 "subRoutes": [],
                 "routeDisplayName": "Stock",
-                "route": "",
+                "route": "stock",
                 "routeAccessFor": []
             },
             {
                 "isActiveRoute": false,
                 "subRoutes": [],
-                "routeDisplayName": "Zero level stock",
-                "route": "",
-                "routeAccessFor": []
-            },
-            {
-                "isActiveRoute": false,
-                "subRoutes": [],
-                "routeDisplayName": "Reorder level stock",
-                "route": "",
+                "routeDisplayName": "Add stock",
+                "route": "add",
                 "routeAccessFor": []
             }
         ],

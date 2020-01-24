@@ -11,13 +11,31 @@ ul.active {
 .side-menu-content-container ul {
     list-style-type: none;
     padding: 5px;
-    margin: 5px auto;
+    margin: 0px;
     display: none;
 }
 
 .side-menu-content-container ul li {
-    padding: 2px 5px;
-    margin: 5px auto;
+    padding: 5px;
+    margin: 5px 0px;
+    position: relative;
+    width: calc(100% - 10px);
+}
+
+.side-menu-content-container ul li.active,
+.side-menu-content-container ul li:hover {
+    /* background-color: #ec1941; */
+    background-color: #454f66;
+}
+
+.side-menu-content-container ul li.active::before,
+.side-menu-content-container ul li:hover::before {
+    content: '';
+    position: absolute;
+    top: 0px;
+    right: -4px;
+    border-right: 4px solid #fdfdfd;
+    height: 29px;
 }
 
 .side-menu-content-container ul li a {
@@ -25,7 +43,13 @@ ul.active {
     font-size: 0.99rem;
     width: 100%;
     display: block;
-    color: #fff;
+    color: inherit;
+    outline: none;
+}
+
+.side-menu-content-container ul li a.active,
+.side-menu-content-container ul li:hover {
+    color: #fff !important;
 }
 
 .side-menu-content-container>div {
@@ -43,19 +67,37 @@ ul.active {
     cursor: pointer;
 }
 
-.side-menu-content-container>div::before {
+.side-menu-content-container>div>.menu-clickable-area::before {
     content: "";
     position: absolute;
     border-left: 5px solid #1ae4ee;
-    width: 0px;
-    /* left: 0px; */
-    right: -10px;
-    height: 49px;
+    right: 0px;
+    height: 48px;
     opacity: 0;
 }
 
-.side-menu-content-container>div:hover::before {
-    width: 10px;
+.side-menu-content-container>div>.open {
+    border-bottom: 1px solid #868686;
+}
+
+.side-menu-content-container>div>.menu-clickable-area>p:last-child>mat-icon {
+    transform: rotate(0deg);
+    transition: transform 0.3S linear;
+}
+
+.side-menu-content-container>div>.open>p:last-child>mat-icon {
+    transform: rotate(180deg);
+    transition: transform 0.3S linear;
+}
+
+.side-menu-content-container>div>.menu-clickable-area:hover::before,
+.side-menu-content-container>div>.open::before {
     opacity: 1;
     transition: width, opacity 0.3s ease-in;
+}
+
+.menu-clickable-area>p {
+    margin: 0;
+    padding: 10px 5px;
+    align-self: center;
 }

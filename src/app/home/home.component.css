@@ -12,10 +12,13 @@
 
 .side-bar-header-max {
     position: absolute;
-    height: 64px;
+    height: 63px;
     width: 100%;
-    background: #f5f5f5;
-    color: rgba(0, 0, 0, .87);
+    /* background: #f5f5f5;
+    color: rgba(0, 0, 0, .87); */
+    background: #0e0228;
+    color: rgb(129, 137, 147);
+    border-bottom: 1px solid #44fb4f !important;
 }
 
 .side-bar-header-max h2 {

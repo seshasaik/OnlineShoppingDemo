@@ -1,17 +1,20 @@
 <div fxLayout="column" fxLayouAling="flex-start stretch" class="side-menu-content-container">
-    <div *ngFor="let userRoute of userRoutes; let i = index">
-        <div>
-            <p (click)="expandSideMenu(i)">
+    <div *ngFor="let userRoute of userRoutes; let i = index" fxLayout="column" fxLayoutAlign="flex-start stretch">
+        <div class="menu-clickable-area" [ngClass]="{'open':i === currentSelection}" (click)="expandSideMenu(i)" fxLayout fxLayoutAlign="space-between stretch">
+            <p>
                 {{userRoute.routeDisplayName}}
+            </p>
+            <p fxFlex="35px">
+                <mat-icon>arrow_drop_up</mat-icon>
             </p>
         </div>
         <ul [ngClass]="{'active': i === currentSelection}">
-            <li>
+            <li *ngIf="userRoute.subRoutes.length === 0">
                 <a [routerLink]="[{outlets: { home : [userRoute.route]}}]">{{userRoute.routeDisplayName}}</a>
             </li>
             <ng-container *ngIf="userRoute.subRoutes.length > 0">
-                <li *ngFor="let subUserRoute of userRoute.subRoutes" routerLinkActive="router-link-active">
-                    <a [routerLink]="[{outlets: { home : [userRoute.route, subUserRoute.route]}}]">{{subUserRoute.routeDisplayName}}</a>
+                <li *ngFor="let subUserRoute of userRoute.subRoutes" routerLinkActive="active">
+                    <a [routerLink]="[{outlets: { home : [userRoute.route, subUserRoute.route]}}]" routerLinkActive="active" (click)="setPannelId(i)">{{subUserRoute.routeDisplayName}}</a>
                 </li>
             </ng-container>
         </ul>
