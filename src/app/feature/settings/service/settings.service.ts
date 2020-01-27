@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpEvent } from '@angular/common/http';
-import { BaseAPIURLService } from 'src/app/services/base-apiurl.service';
-import { AuthService } from 'src/app/services/auth.service';
+import { BaseAPIURLService } from 'src/app/_services/base-apiurl.service';
+import { AuthService } from 'src/app/_services/auth.service';
 import { User } from 'src/app/model/user';
 import { Observable, of } from 'rxjs';
 import { tap, catchError } from 'rxjs/operators';

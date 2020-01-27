@@ -200,5 +200,26 @@
         ],
         "route": "supplier",
         "routeAccessFor": []
+    },
+    {
+        "isActiveRoute": false,
+        "routeDisplayName": "Purchase order",
+        "subRoutes": [{
+                "isActiveRoute": false,
+                "subRoutes": [],
+                "routeDisplayName": "Purchase Order list",
+                "route": "list",
+                "routeAccessFor": []
+            },
+            {
+                "isActiveRoute": false,
+                "subRoutes": [],
+                "routeDisplayName": "New purchase order",
+                "route": "add",
+                "routeAccessFor": []
+            }
+        ],
+        "route": "purchase-order",
+        "routeAccessFor": []
     }
 ]

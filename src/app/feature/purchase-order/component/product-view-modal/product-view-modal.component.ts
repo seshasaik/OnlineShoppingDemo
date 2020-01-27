@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { MatDialogRef, MatTableDataSource } from '@angular/material';
+import { Component, OnInit, Inject } from '@angular/core';
+import { MatDialogRef, MatTableDataSource, MAT_DIALOG_DATA } from '@angular/material';
 import { Product } from 'src/app/model/product';
 import { SelectionModel } from '@angular/cdk/collections';
+import { PurchaseOrderService } from '../../service/purchase-order.service';
+
 
 @Component({
   selector: 'app-product-view-modal',
@@ -10,17 +12,27 @@ import { SelectionModel } from '@angular/cdk/collections';
 })
 export class ProductViewModalComponent implements OnInit {
 
-  constructor(private modalRef: MatDialogRef<ProductViewModalComponent>) { }
+  constructor(private modalRef: MatDialogRef<ProductViewModalComponent>,
+    @Inject(MAT_DIALOG_DATA) public supplierId: string,
+    private purchaseOrderService: PurchaseOrderService) { }
 
-  supplierDataSource: MatTableDataSource<Product>;
+  productDataSource: MatTableDataSource<Product>;
 
   selection: SelectionModel<Product>;
 
   columnsToDisplay: string[] = ['select', 'name', 'description'];
 
   ngOnInit() {
-    this.supplierDataSource = new MatTableDataSource([]);
+    this.productDataSource = new MatTableDataSource([]);
     this.selection = new SelectionModel<Product>(true, []);
+    let subsriber = this.purchaseOrderService.getProducts(this.supplierId).subscribe(
+      (productList: Product[]) => {
+        this.productDataSource.data = productList;
+        this.productDataSource._updateChangeSubscription();
+      }, () => {
+        subsriber.unsubscribe();
+      }
+    )
   }
 
   dismissModel() {
@@ -35,7 +47,7 @@ export class ProductViewModalComponent implements OnInit {
   /** Whether the number of selected elements matches the total number of rows. */
   isAllSelected() {
     const numSelected = this.selection.selected.length;
-    const numRows = this.supplierDataSource.data.length;
+    const numRows = this.productDataSource.data.length;
     return numSelected == numRows;
   }
 
@@ -43,7 +55,7 @@ export class ProductViewModalComponent implements OnInit {
   masterToggle() {
     this.isAllSelected() ?
       this.selection.clear() :
-      this.supplierDataSource.data.forEach(row => this.selection.select(row));
+      this.productDataSource.data.forEach(row => this.selection.select(row));
   }
 
 }

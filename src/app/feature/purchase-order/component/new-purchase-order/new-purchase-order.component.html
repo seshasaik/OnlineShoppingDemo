@@ -1,0 +1,70 @@
+<div fxLayout="column" fxLayoutAlign="flex-start stretch">
+    <div>
+        <h2>Purchase order</h2>
+    </div>
+    <form [formGroup]="purchaseOrderFormGroup" (ngSubmit)="savePurcaseOrder()">
+        <input type="hidden" formControlName="status">
+        <div fxLayout="row wrap" fxLayoutAlign="stretch center" fxLayoutGap="20px">
+            <div fxFlex="calc(50% - 20px)">
+                <mat-form-field appearance="outline">
+                    <mat-label>Purchase Order Code</mat-label>
+                    <input matInput formControlName="purchaseOrderCode" placeholder="Purchase Order Code">
+                    <mat-error *ngIf="purchaseOrderFormGroupControl['purchaseOrderCode'].invalid && (purchaseOrderFormGroupControl['purchaseOrderCode'].dirty || purchaseOrderFormGroupControl['purchaseOrderCode'].pristine)">
+                        <span *ngIf="purchaseOrderFormGroupControl['purchaseOrderCode'].hasError('required')">Purchase order code is required</span>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div fxFlex="calc(50% - 20px)">
+                <mat-form-field appearance="outline">
+                    <mat-label>Supplier</mat-label>
+                    <mat-select formControlName="supplier" (selectionChange)="openAddProductDialog($event)">
+                        <mat-option value="">--select status--</mat-option>
+                        <mat-option [value]="supplier.id" *ngFor="let supplier of suppliers;">{{supplier.name}}</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="purchaseOrderFormGroupControl['supplier'].invalid && (purchaseOrderFormGroupControl['supplier'].dirty || purchaseOrderFormGroupControl['supplier'].pristine)">
+                        <span *ngIf="purchaseOrderFormGroupControl['supplier'].hasError('required')">Supplier is required</span>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div formArrayName="items" fxFlex="calc(100% - 40px)">
+                <table>
+                    <thead>
+                        <th>sno</th>
+                        <th>name</th>
+                        <th>category</th>
+                        <th>Required Qty</th>
+                        <th>price</th>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of items.controls; let i = index" [formGroupName]="i">
+                            <td>{{ i + 1}}</td>
+                            <td>
+                                <div [formGroupName]="product">
+                                    <input type="hidden" formControlName="id">
+                                    <input type="hidden" formControlName="name">
+                                    <span>{{item['product'].name.value}}</span>
+                                </div>
+                            </td>
+                            <td>
+                                <input type="text" disabled placeholder="Ordered Qty" />
+                            </td>
+                            <td>
+                                <input type="text" formControlName="orderedQty" placeholder="Ordered Qty" />
+                            </td>
+                            <td>
+                                <input type="text" formControlName="cost" placeholder="Price" />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+            <div fxFlex="calc(100% - 40px)">
+                <button mat-raised-button type="submit" [disabled]="purchaseOrderFormGroupControl.invalid">Save</button>
+                <button mat-raised-button type="button" (click)="purchaseOrderFormGroupControl.reset()">Reset</button>
+            </div>
+
+        </div>
+    </form>
+</div>

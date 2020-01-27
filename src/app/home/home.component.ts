@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { UserRoutes } from '../model/UserRoutes';
 import { MatSidenav, MatAccordion, MatExpansionPanelHeader } from '@angular/material';
-import { AppRouterService } from '../services/app-router.service';
+import { AppRouterService } from '../_services/app-router.service';
 import { ActivatedRouteSnapshot, Router, ActivatedRoute } from '@angular/router';
 
 @Component({

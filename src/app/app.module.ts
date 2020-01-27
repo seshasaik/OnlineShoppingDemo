@@ -4,7 +4,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { GlobalMaterialModule } from './global-material-module/global-material-module.module';
-import { AppRouterService } from './services/app-router.service';
+import { AppRouterService } from './_services/app-router.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -18,6 +18,7 @@ import { LoaderIntercepter } from './_interceptors/loader-interceptor';
 import { JwtTokenInterceptor } from './_interceptors/jwt-token-interceptor';
 import { ErrorInterceptor } from './_interceptors/error-interceptor';
 import { HomeModule } from './home/home.module';
+
 
 
 @NgModule({

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpEvent } from '@angular/common/http';
 import { User } from '../model/user';
-import { BaseAPIURLService } from '../services/base-apiurl.service';
+import { BaseAPIURLService } from '../_services/base-apiurl.service';
 import { Observable, of } from 'rxjs';
 import { MessagingService } from '../feature/messaging/messaging.service';
 import { catchError } from 'rxjs/operators';

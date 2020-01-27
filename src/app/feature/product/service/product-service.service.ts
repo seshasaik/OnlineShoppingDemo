@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Product } from '../../../model/product';
 import { Supplier } from '../../../model/supplier';
 import { HttpClient, HttpEvent } from '@angular/common/http';
-import { BaseAPIURLService } from 'src/app/services/base-apiurl.service';
+import { BaseAPIURLService } from 'src/app/_services/base-apiurl.service';
 import { Observable, of, throwError } from 'rxjs';
 import { switchMap, catchError } from 'rxjs/operators';
 import { MessagingService } from '../../messaging/messaging.service';

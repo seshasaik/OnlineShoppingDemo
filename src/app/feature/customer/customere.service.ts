@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { BaseAPIURLService } from 'src/app/services/base-apiurl.service';
+import { BaseAPIURLService } from 'src/app/_services/base-apiurl.service';
 import { CustomerModule } from './customer.module';
 import { Customer } from 'src/app/model/customer';
 import { Observable, from, of } from 'rxjs';
