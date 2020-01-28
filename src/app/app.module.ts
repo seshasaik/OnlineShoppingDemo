@@ -18,6 +18,7 @@ import { LoaderIntercepter } from './_interceptors/loader-interceptor';
 import { JwtTokenInterceptor } from './_interceptors/jwt-token-interceptor';
 import { ErrorInterceptor } from './_interceptors/error-interceptor';
 import { HomeModule } from './home/home.module';
+import { OnlyTwoDecimalInputDirective } from './_directives/only-two-decimal-input.directive';
 
 
 
@@ -27,7 +28,8 @@ import { HomeModule } from './home/home.module';
     LoginComponent,
     ForgetPasswordComponent,
     SignUpComponent,
-    LoadingSpinnerComponent
+    LoadingSpinnerComponent,
+    OnlyTwoDecimalInputDirective
   ],
   imports: [
     BrowserModule,

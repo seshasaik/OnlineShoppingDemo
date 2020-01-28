@@ -1,0 +1,63 @@
+table {
+    width: 100%;
+}
+
+thead {
+    background: #d2d2ac;
+    text-align: left;
+}
+
+th {
+    padding: 10px 0px 10px 10px;
+}
+
+th:first-child {
+    width: 50px;
+}
+
+th:last-child {
+    width: 30px;
+}
+
+th.min-width {
+    width: 150px;
+}
+
+tr input.full-width,
+td:first-child {
+    padding: 10px 0px 10px 10px;
+    width: calc(100% - 20px);
+    margin: auto 5px;
+}
+
+tr input.full-width {
+    border-radius: 5px;
+    border: 1px solid rgb(71, 71, 71);
+}
+
+.no-border-input {
+    border: 0px !important;
+    outline: unset;
+    font-family: inherit;
+    background: unset;
+    font-size: 15px;
+    color: #1b325e;
+    font-weight: 500;
+}
+
+table tr {
+    background-color: #45ffb1;
+    cursor: pointer;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.mat-form-field {
+    width: 100%;
+}

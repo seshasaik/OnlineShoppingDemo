@@ -18,7 +18,7 @@ import { ProductViewModalComponent } from './component/product-view-modal/produc
     PurchaseOrderComponent,
     NewPurchaseOrderComponent,
     EditPurchaseOrderComponent,
-    ProductViewModalComponent
+    ProductViewModalComponent,
   ],
   imports: [
     CommonModule,

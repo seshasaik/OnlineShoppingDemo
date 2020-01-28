@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, OnDestroy } from '@angular/core';
 import { MatDialogRef, MatTableDataSource, MAT_DIALOG_DATA } from '@angular/material';
 import { Product } from 'src/app/model/product';
 import { SelectionModel } from '@angular/cdk/collections';
@@ -10,7 +10,8 @@ import { PurchaseOrderService } from '../../service/purchase-order.service';
   templateUrl: './product-view-modal.component.html',
   styleUrls: ['./product-view-modal.component.css']
 })
-export class ProductViewModalComponent implements OnInit {
+export class ProductViewModalComponent implements OnInit, OnDestroy {
+
 
   constructor(private modalRef: MatDialogRef<ProductViewModalComponent>,
     @Inject(MAT_DIALOG_DATA) public supplierId: string,
@@ -35,8 +36,14 @@ export class ProductViewModalComponent implements OnInit {
     )
   }
 
+  ngOnDestroy(): void {
+    this.selection.clear();
+    this.productDataSource.disconnect()
+  }
+
+
   dismissModel() {
-    this.modalRef.close();
+    this.modalRef.close([]);
   }
 
 
