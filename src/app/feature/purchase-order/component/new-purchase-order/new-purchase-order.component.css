@@ -17,10 +17,15 @@ th:first-child {
 
 th:last-child {
     width: 30px;
+    padding: 10px 5px 10px 5px !important;
 }
 
 th.min-width {
     width: 150px;
+}
+
+tr .text-direction-right {
+    padding: 10px 10px 10px 0px !important;
 }
 
 tr input.full-width,
@@ -60,4 +65,21 @@ table tr {
 
 .mat-form-field {
     width: 100%;
+}
+
+.margin-top-10 {
+    margin-top: 10px !important;
+}
+
+.m-lr {
+    margin: auto 5px;
+}
+
+.zero-products-error {
+    color: #f44336;
+    padding: 10px 0px 10px 5px;
+}
+
+table+div {
+    margin-top: 15px;
 }

@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductViewModalComponent } from '../product-view-modal/product-view-modal.component';
 import { MatDialog, MatSelectChange } from '@angular/material';
-import { FormGroup, FormBuilder, Validators, FormArray } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormArray, ValidatorFn, ValidationErrors, AbstractControl } from '@angular/forms';
 import { Product } from 'src/app/model/product';
 import { Supplier } from 'src/app/model/supplier';
 import { SupplierService } from 'src/app/feature/supplier/service/supplier.service';
 import { ProductOrderStatus } from 'src/app/model/enums/product-order-status.enum';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-new-purchase-order',
@@ -18,7 +19,9 @@ export class NewPurchaseOrderComponent implements OnInit {
 
   constructor(private dialog: MatDialog,
     private fb: FormBuilder,
-    private supplierService: SupplierService
+    private supplierService: SupplierService,
+    private router: Router,
+    private activeRoute: ActivatedRoute
   ) { }
 
   purchaseOrderFormGroup: FormGroup;
@@ -34,10 +37,8 @@ export class NewPurchaseOrderComponent implements OnInit {
     this.getAllSuppliers();
     this.purchaseOrderFormGroup = this.fb.group({
       "purchaseOrderCode": this.fb.control('', [Validators.required]),
-      "supplier": this.fb.control('', [Validators.required]),
-      "status": this.fb.control(ProductOrderStatus.PENDING),
-      // "testQty": this.fb.control('', [Validators.required, Validators.pattern('[0-9]+')]),
-      "items": this.fb.array([])
+      "supplier": this.fb.control('', [Validators.required]),           
+      "items": this.fb.array([], [this.atLeastOneProductValidator])
     })
 
 
@@ -93,30 +94,43 @@ export class NewPurchaseOrderComponent implements OnInit {
                 "name": this.fb.control(data.name)
               }),
               "orderedQty": this.fb.control('', [Validators.required, Validators.pattern('[0-9]+')]),
-              "unitPrice": this.fb.control('', [Validators.required, Validators.pattern('[0-9]+([\.0-9]{2,3})?')]),
+              "unitPrice": this.fb.control('', [Validators.required]), //, Validators.pattern('^[0-9]+(\.[0-9]{1,2})?')
               "cost": this.fb.control(''),
             }))
           });
 
           this.items.controls.forEach((control) => {
             let valueSubscriber = control.valueChanges.subscribe((valuesObserver) => {
+
+              const regExp = new RegExp("^[0-9]+(\.[0-9]{1,2})?", "g");
+              const result = regExp.exec(valuesObserver.unitPrice);
+              if (result && result[1]) {
+                valuesObserver.unitPrice = result[0];
+                control.get("unitPrice").setValue(result[0], {
+                  onlySelf: true, emitEvent: false, emitModelToViewChange: true
+                });
+              }
               let cost = Number(valuesObserver.orderedQty * valuesObserver.unitPrice).toFixed(2);
-              
               control.get("cost").setValue(cost, {
                 onlySelf: true, emitEvent: false, emitModelToViewChange: true
               });
-
-
+              this.calculateTotalCost();
             }, null, () => {
               valueSubscriber.unsubscribe();
             });
+
+            // let statusSubsriber = control.statusChanges.subscribe((observer) => {
+            //   if (observer === "VALID") {
+
+            //   }
+            // }, null, () => {
+            //   statusSubsriber.unsubscribe()
+            // })
+
           })
-          // let statusSubsriber = control.statusChanges.subscribe((observer) => {
-          //   if (observer === "VALID") {
-          //   }
-          // }, null, () => {
-          //   statusSubsriber.unsubscribe()
-          // })
+
+
+
 
 
         }
@@ -142,14 +156,32 @@ export class NewPurchaseOrderComponent implements OnInit {
 
 
   savePurcaseOrder() {
-
+    if(this.purchaseOrderFormGroup.valid){
+      this.purchaseOrderFormGroup.value
+    }
   }
 
   checkFormControlStatusInFormArray(indx: number) {
+    this.removeProduct(indx);
+  }
 
+  calculateTotalCost() {
+    this.totalCost = 0;
+    this.items.controls.forEach((control) => {
+      this.totalCost += Number(control.get("cost").value)
+    });
+  }
+
+  atLeastOneProductValidator(control: FormArray): ValidationErrors | null {
+    return control.length > 0 ? null : { 'emptyProduct': 'Purchase order conatains atleast one product' }
   }
 
 
+  cancelPurchaseOrder() {
+    this.router.navigate(['..', 'list'], {
+      relativeTo: this.activeRoute
+    });
+  }
 }
 
 

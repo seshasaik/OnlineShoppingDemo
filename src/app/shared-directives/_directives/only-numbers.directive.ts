@@ -1,14 +1,14 @@
 import { Directive, HostListener } from '@angular/core';
 
 @Directive({
-  selector: '[onlyTwoDecimalInput]'
+  selector: '[onlyNumbers]'
 })
-export class OnlyTwoDecimalInputDirective {
+export class OnlyNumbersDirective {
 
   constructor() { }
 
   @HostListener('keydown', ['$event'])
-  onKeyDown(e: KeyboardEvent) {    
+  onKeyDown(e: KeyboardEvent) {
     if (
       // Allow: Delete, Backspace, Tab, Escape, Enter
       [46, 8, 9, 27, 13].indexOf(e.keyCode) !== -1 ||
@@ -31,6 +31,8 @@ export class OnlyTwoDecimalInputDirective {
     ) {
       e.preventDefault();
     }
-  }
 
+
+
+  }
 }

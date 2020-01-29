@@ -18,7 +18,7 @@ import { LoaderIntercepter } from './_interceptors/loader-interceptor';
 import { JwtTokenInterceptor } from './_interceptors/jwt-token-interceptor';
 import { ErrorInterceptor } from './_interceptors/error-interceptor';
 import { HomeModule } from './home/home.module';
-import { OnlyTwoDecimalInputDirective } from './_directives/only-two-decimal-input.directive';
+import { SharedDirectivesModule } from './shared-directives/shared-directives.module';
 
 
 
@@ -28,8 +28,7 @@ import { OnlyTwoDecimalInputDirective } from './_directives/only-two-decimal-inp
     LoginComponent,
     ForgetPasswordComponent,
     SignUpComponent,
-    LoadingSpinnerComponent,
-    OnlyTwoDecimalInputDirective
+    LoadingSpinnerComponent
   ],
   imports: [
     BrowserModule,
@@ -42,6 +41,7 @@ import { OnlyTwoDecimalInputDirective } from './_directives/only-two-decimal-inp
     HomeModule,
     AppRoutingModule,
     MessagingModule,
+    SharedDirectivesModule,
 
   ],
   providers: [AppRouterService,

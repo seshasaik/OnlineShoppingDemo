@@ -11,6 +11,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { ReactiveFormsModule } from '@angular/forms';
 import { GlobalMaterialModule } from 'src/app/global-material-module/global-material-module.module';
 import { ProductViewModalComponent } from './component/product-view-modal/product-view-modal.component';
+import { SharedDirectivesModule } from 'src/app/shared-directives/shared-directives.module';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { ProductViewModalComponent } from './component/product-view-modal/produc
     FlexLayoutModule,
     ReactiveFormsModule,
     GlobalMaterialModule,
+    SharedDirectivesModule,
     PurchaseOrderRoutingModule
   ],
   providers: [
