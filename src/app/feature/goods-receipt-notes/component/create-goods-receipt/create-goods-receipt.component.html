@@ -1,0 +1,91 @@
+<div>
+    <mat-card>
+        <mat-card-title>
+            <h4>Goods Receipt Notes (GRN)</h4>
+        </mat-card-title>
+        <mat-card-content>
+            <div>
+                <form [formGroup]="GRNFormGroup">
+                    <div fxLayout="row wrap" fxLayoutAlign="space-around cener" fxLayoutGap="20px">
+                        <div fxFlex="calc(50% - 20px)">
+                            <mat-form-field appearance="outline">
+                                <mat-label>GRN Code</mat-label>
+                                <input matInput type="text" placeholder="GRN Code" formControlName="GRNCode">
+                                <mat-error></mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div fxFlex="calc(50% - 20px)">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Purchase Order</mat-label>
+                                <mat-select (selectionChange)="getPendingPurchaserOrders($event)" formControlName="purchaseOrderId">
+                                    <mat-option value="">--Select--</mat-option>
+                                    <mat-option *ngFor="let purchaseOrder of pendingPurchaserOrderList" value="purchaseOrder.id">{{purchaseOrder.purchaseOrderCode}}</mat-option>
+                                </mat-select>
+                                <mat-error></mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div fxFlex="calc(100% - 20px)" formArrayName="goodsReceiptItems">
+                            <table mat-table [dataSource]="goodsReceiptItemsDataSource">
+
+                                <ng-container matColumnDef="Sno">
+                                    <th mat-header-cell *matHeaderCellDef>#</th>
+                                    <td mat-cell *matCellDef="let i = index">{{i+1}}</td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="productName">
+                                    <th mat-header-cell *matHeaderCellDef>Product Name</th>
+                                    <td mat-cell *matCellDef="let element">
+                                        <div [formGroupName]="product">
+                                            <input type="hidden" [formControlName]="product.id">
+                                            <input type="text" readonly [formControlName]="product.name">
+                                        </div>
+                                    </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="RequestedQty">
+                                    <th mat-header-cell *matHeaderCellDef>Requested Qty</th>
+                                    <td mat-cell *matCellDef>
+                                        <div>
+                                            <input type="text" readonly [formControlName]="orderedQty">
+                                        </div>
+                                    </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="ReceivedQty">
+                                    <th mat-header-cell *matHeaderCellDef>Received Qty</th>
+                                    <td mat-cell *matCellDef>
+                                        <div>
+                                            <input type="text" [formControlName]="receivedQty">
+                                        </div>
+                                    </td>
+                                </ng-container>
+                                <ng-container matColumnDef="cost">
+                                    <th mat-header-cell *matHeaderCellDef>Unit Cost</th>
+                                    <td mat-cell *matCellDef>
+
+                                        <div>
+                                            <input type="text" [formControlName]="cost" readonly>
+                                        </div>
+                                    </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="worth">
+                                    <th mat-header-cell *matHeaderCellDef>Total</th>
+                                    <td mat-cell *matCellDef>
+                                        <div>
+                                            <input type="text" [formControlName]="total" readonly>
+                                        </div>
+                                    </td>
+                                </ng-container>
+
+                                <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+                                <tr mat-row *matRowDef="let row; columns : columnsToDisplay; let j = index;" [formGroupName]="j"></tr>
+                            </table>
+                        </div>
+                        <div fxFlex="calc(100% - 20px)"></div>
+                    </div>
+                </form>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>

@@ -12,6 +12,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { GlobalMaterialModule } from 'src/app/global-material-module/global-material-module.module';
 import { ProductViewModalComponent } from './component/product-view-modal/product-view-modal.component';
 import { SharedDirectivesModule } from 'src/app/shared-directives/shared-directives.module';
+import { CustomizedPipesModule } from 'src/app/_pipe/customized-pipes.module';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { SharedDirectivesModule } from 'src/app/shared-directives/shared-directi
     ReactiveFormsModule,
     GlobalMaterialModule,
     SharedDirectivesModule,
+    CustomizedPipesModule,
     PurchaseOrderRoutingModule
   ],
   providers: [

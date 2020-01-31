@@ -5,8 +5,9 @@ import { FormGroup, FormBuilder, Validators, FormArray, ValidatorFn, ValidationE
 import { Product } from 'src/app/model/product';
 import { Supplier } from 'src/app/model/supplier';
 import { SupplierService } from 'src/app/feature/supplier/service/supplier.service';
-import { ProductOrderStatus } from 'src/app/model/enums/product-order-status.enum';
 import { Router, ActivatedRoute } from '@angular/router';
+import { PurchaseOrderService } from '../../service/purchase-order.service';
+import { PurchaseOrder } from 'src/app/model/purchase-order';
 
 @Component({
   selector: 'app-new-purchase-order',
@@ -20,6 +21,7 @@ export class NewPurchaseOrderComponent implements OnInit {
   constructor(private dialog: MatDialog,
     private fb: FormBuilder,
     private supplierService: SupplierService,
+    private purchaseOrderService: PurchaseOrderService,
     private router: Router,
     private activeRoute: ActivatedRoute
   ) { }
@@ -37,15 +39,9 @@ export class NewPurchaseOrderComponent implements OnInit {
     this.getAllSuppliers();
     this.purchaseOrderFormGroup = this.fb.group({
       "purchaseOrderCode": this.fb.control('', [Validators.required]),
-      "supplier": this.fb.control('', [Validators.required]),           
+      "supplierId": this.fb.control('', [Validators.required]),
       "items": this.fb.array([], [this.atLeastOneProductValidator])
     })
-
-
-
-
-
-
 
     // let pruchaseOrderFormGroupValueChngSubscriber = this.items.valueChanges.subscribe((observer: FormGroup[]) => {
     //   observer.forEach((ob, i) => {
@@ -156,8 +152,16 @@ export class NewPurchaseOrderComponent implements OnInit {
 
 
   savePurcaseOrder() {
-    if(this.purchaseOrderFormGroup.valid){
-      this.purchaseOrderFormGroup.value
+    if (this.purchaseOrderFormGroup.valid) {
+      let purchaseOrder: PurchaseOrder = this.purchaseOrderFormGroup.value
+      purchaseOrder.worth = this.totalCost;
+      let savePurchaseOrderSusbriber = this.purchaseOrderService.savePurchaseOreder(purchaseOrder).subscribe((status: boolean) => {
+        if (status) {
+          this.items.clear();
+          this.purchaseOrderFormGroup.reset();
+          this.goToPurchaseOrderList();
+        }
+      }, () => { savePurchaseOrderSusbriber.unsubscribe(); });
     }
   }
 
@@ -178,6 +182,10 @@ export class NewPurchaseOrderComponent implements OnInit {
 
 
   cancelPurchaseOrder() {
+    this.goToPurchaseOrderList();
+  }
+
+  goToPurchaseOrderList(): void {
     this.router.navigate(['..', 'list'], {
       relativeTo: this.activeRoute
     });

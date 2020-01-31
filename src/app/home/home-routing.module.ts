@@ -13,7 +13,8 @@ const routes: Routes = [
   { path: 'supplier', loadChildren: () => import('../feature/supplier/supplier.module').then(m => m.SupplierModule), outlet: 'home' },
   { path: 'purchase-order', loadChildren: () => import('../feature/purchase-order/purchase-order.module').then(m => m.PurchaseOrderModule), outlet: 'home' },
   // { path: 'dashboard', loadChildren: () => import('../feature/dashboard/dashboard.module').then(m => m.DashboardModule), outlet: 'home' },    
-  { path: '', redirectTo: 'customer', pathMatch: 'full' }
+  { path: 'goods-receipt-note', loadChildren: () => import('../feature/goods-receipt-notes/goods-receipt-notes.module').then(m => m.GoodsReceiptNotesModule), outlet: 'home' },
+  { path: '', redirectTo: 'customer', pathMatch: 'full' },
 ];
 
 @NgModule({

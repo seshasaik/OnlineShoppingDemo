@@ -22,13 +22,14 @@ import { SharedDirectivesModule } from './shared-directives/shared-directives.mo
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     ForgetPasswordComponent,
     SignUpComponent,
-    LoadingSpinnerComponent
+    LoadingSpinnerComponent,
   ],
   imports: [
     BrowserModule,

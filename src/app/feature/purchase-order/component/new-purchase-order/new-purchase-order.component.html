@@ -7,7 +7,6 @@
         </mat-card-title>
         <mat-card-content>
             <form [formGroup]="purchaseOrderFormGroup" (ngSubmit)="savePurcaseOrder()">
-                <input type="hidden" formControlName="status">
                 <div fxLayout="row wrap" fxLayoutAlign="stretch center" fxLayoutGap="20px">
                     <div fxFlex="calc(50% - 20px)">
                         <mat-form-field appearance="outline">
@@ -21,12 +20,12 @@
                     <div fxFlex="calc(50% - 20px)">
                         <mat-form-field appearance="outline">
                             <mat-label>Supplier</mat-label>
-                            <mat-select formControlName="supplier" (selectionChange)="openAddProductDialog($event)">
+                            <mat-select formControlName="supplierId" (selectionChange)="openAddProductDialog($event)">
                                 <mat-option value="">--select status--</mat-option>
                                 <mat-option [value]="supplier.id" *ngFor="let supplier of suppliers;">{{supplier.name}}</mat-option>
                             </mat-select>
-                            <mat-error *ngIf="purchaseOrderFormGroupControl['supplier'].invalid && (purchaseOrderFormGroupControl['supplier'].dirty || purchaseOrderFormGroupControl['supplier'].pristine)">
-                                <span *ngIf="purchaseOrderFormGroupControl['supplier'].hasError('required')">Supplier is required</span>
+                            <mat-error *ngIf="purchaseOrderFormGroupControl['supplierId'].invalid && (purchaseOrderFormGroupControl['supplierId'].dirty || purchaseOrderFormGroupControl['supplierId'].pristine)">
+                                <span *ngIf="purchaseOrderFormGroupControl['supplierId'].hasError('required')">Supplier is required</span>
                             </mat-error>
                         </mat-form-field>
                     </div>
@@ -74,7 +73,7 @@
                                     <td colspan="4" class="text-right text-direction-right">Total Cost</td>
                                     <td class="text-right">
                                         <div class="text-direction-right m-lr">
-                                            {{totalCost.toFixed(2) || 0.00}}
+                                            &#8377; {{totalCost.toFixed(2) || 0.00}}
                                         </div>
                                     </td>
                                     <td></td>

@@ -221,5 +221,26 @@
         ],
         "route": "purchase-order",
         "routeAccessFor": []
+    },
+    {
+        "isActiveRoute": false,
+        "routeDisplayName": "Goods Receipt Notes",
+        "subRoutes": [{
+                "isActiveRoute": false,
+                "subRoutes": [],
+                "routeDisplayName": "GRN list",
+                "route": "list",
+                "routeAccessFor": []
+            },
+            {
+                "isActiveRoute": false,
+                "subRoutes": [],
+                "routeDisplayName": "New GRN",
+                "route": "add",
+                "routeAccessFor": []
+            }
+        ],
+        "route": "goods-receipt-note",
+        "routeAccessFor": []
     }
 ]

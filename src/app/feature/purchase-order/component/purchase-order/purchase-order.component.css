@@ -1,0 +1,68 @@
+table {
+    width: 100%;
+}
+
+::ng-deep table thead th:nth-child(6) {
+    width: 10% !important;
+}
+
+::ng-deep table thead th {
+    padding-left: 5px !important;
+}
+
+.currency-view-container {
+    display: block;
+    width: calc(100% - 10px);
+    margin: auto 5px;
+}
+
+.currency-view-container>div {
+    display: inline-block;
+    padding: 5px 8px;
+    margin: 5px auto;
+}
+
+.currency-view-container>div:last-child {
+    width: calc(85% - 16px);
+    text-align: right;
+}
+
+.currency-view-container>div:first-child {
+    width: calc(15% - 16px) !important;
+    text-align: center !important;
+    background: #ffd6a8;
+    color: #664646;
+    border-radius: 50%;
+    box-shadow: 0px 0px 3px 2px #d2d1cf;
+}
+
+.status-container {
+    width: calc(100% - 10px);
+    margin: 3px 5px;
+    position: relative;
+}
+
+.status-container>span {
+    position: absolute;
+    width: calc(100% - 14px);
+    padding: 5px;
+    margin: 2px;
+    border-radius: 5px;
+    border: 1px solid rgb(189, 189, 189);
+    background-color: #686868;
+    color: #fff;
+    -webkit-transform: translateY(-60%);
+    -moz-transform: translateY(-60%);
+    -ms-transform: translateY(-60%);
+    -o-transform: translateY(-60%);
+    transform: translateY(-60%);
+    text-align: center;
+}
+
+.status-container>span.complete {
+    background-color: #2ddf1e;
+}
+
+.status-container>span.cancel {
+    background-color: #ff6565;
+}
