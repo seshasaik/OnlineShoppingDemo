@@ -9,15 +9,22 @@ import { PurchaseOrderService } from '../purchase-order/service/purchase-order.s
 import { ReactiveFormsModule } from '@angular/forms';
 import { GlobalMaterialModule } from 'src/app/global-material-module/global-material-module.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { SharedDirectivesModule } from 'src/app/shared-directives/shared-directives.module';
+import { CustomizedPipesModule } from 'src/app/_pipe/customized-pipes.module';
+
 
 
 @NgModule({
-  declarations: [GoodsReceiptNotesComponent, CreateGoodsReceiptComponent],
+  declarations: [
+    GoodsReceiptNotesComponent,
+     CreateGoodsReceiptComponent    ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
     GlobalMaterialModule,
     FlexLayoutModule,
+    SharedDirectivesModule,
+    CustomizedPipesModule,
     GoodsReceiptNotesRoutingModule
   ],
   providers: [

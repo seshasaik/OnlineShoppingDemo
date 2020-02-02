@@ -11,5 +11,5 @@ export class PurchaseOrderItem {
 
     cost: Number;
 
-    total: Number;
+    unitPrice: Number;
 }

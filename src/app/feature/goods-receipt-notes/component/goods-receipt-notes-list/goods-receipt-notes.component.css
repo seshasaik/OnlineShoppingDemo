@@ -1,0 +1,15 @@
+.no-record-found>p {
+    margin: 0;
+    font-size: 1.5em;
+    font-family: inherit;
+    font-weight: 400;
+    color: #737373;
+}
+
+:host ::ng-deep thead th:last-child {
+    width: 10% !important;
+}
+
+:host ::ng-deep thead th:not(.sno-header) {
+    padding-left: 0px !important;
+}

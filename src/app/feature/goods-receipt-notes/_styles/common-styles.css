@@ -1,0 +1,99 @@
+table {
+    width: 100%;
+}
+
+:host ::ng-deep thead th {
+    padding: 10px 0px 10px 10px;
+    background: #d2d2ac;
+    text-align: left;
+}
+
+th:first-child {
+    width: 50px;
+}
+
+th:last-child {
+    width: 30px;
+    padding: 10px 5px 10px 5px !important;
+}
+
+th.min-width {
+    width: 150px;
+}
+
+tr .text-direction-right {
+    padding: 10px 10px 10px 0px !important;
+}
+
+tr input.full-width,
+td:first-child {
+    padding: 10px 0px 10px 10px;
+    width: calc(100% - 20px);
+    margin: auto 5px;
+}
+
+tr input.full-width {
+    border-radius: 5px;
+    border: 1px solid rgb(71, 71, 71);
+}
+
+.no-border-input {
+    border: 0px !important;
+    outline: unset;
+    font-family: inherit;
+    background: unset;
+    font-size: 15px;
+    color: #1b325e;
+    font-weight: 500;
+}
+
+.outline-none {
+    outline: none;
+}
+
+:host /deep/ table tbody tr,
+:host /deep/ table tfoot tr,
+.no-record-found {
+    background-color: #45ffb1;
+    cursor: pointer;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.mat-form-field,
+.w-100 {
+    width: 100%;
+}
+
+.margin-top-10 {
+    margin-top: 10px !important;
+}
+
+.m-lr {
+    margin: auto 5px;
+}
+
+.zero-products-error {
+    color: #f44336;
+    padding: 10px 0px 10px 5px;
+}
+
+table+div:not(.no-record-found) {
+    margin-top: 15px;
+}
+
+.no-record-found {
+    line-height: 5em;
+}
+
+:host ::ng-deep tfoot tr td.no-data-found:first-child {
+    padding: 0px !important;
+    width: 100%;
+    margin: 0;
+}
