@@ -6,7 +6,7 @@ import { GoodsReceiptNotesService } from '../../service/goods-receipt-notes.serv
 @Component({
   selector: 'app-goods-receipt-notes',
   templateUrl: './goods-receipt-notes.component.html',
-  styleUrls: ['./goods-receipt-notes.component.css','../../_styles/common-styles.css']
+  styleUrls: ['./goods-receipt-notes.component.css','../../../../global/_styles/common-styles.css']
 })
 export class GoodsReceiptNotesComponent implements OnInit {
 

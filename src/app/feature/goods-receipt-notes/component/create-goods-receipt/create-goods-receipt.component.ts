@@ -11,7 +11,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-create-goods-receipt',
   templateUrl: './create-goods-receipt.component.html',
-  styleUrls: ['./create-goods-receipt.component.css', '../../_styles/common-styles.css']
+  styleUrls: ['./create-goods-receipt.component.css', '../../../../global/_styles/common-styles.css']
 })
 export class CreateGoodsReceiptComponent implements OnInit {
 

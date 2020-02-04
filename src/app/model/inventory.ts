@@ -5,6 +5,6 @@ import { ProductStock } from './product-stock';
 export class Inventory {
     id: string;
     product: Product;
-    stock: ProductStock;
+    stock: ProductStock[];
     status: ProductStatus;
 }
