@@ -21,8 +21,7 @@ export class ShopingCartService {
 
     this.shopingCart = new BehaviorSubject(null)
     this.authSerive.currentUser.subscribe((user) => {
-      this.baseShopingCartApi = `/customer/${user.customerId}/cart`;
-      this.loadShopingCart();
+      this.baseShopingCartApi = `/customer/${user.customerId}/cart`;     
     })
 
   }
@@ -49,7 +48,6 @@ export class ShopingCartService {
       item.quantity = 1;
       item.price = 2
       cart.items.push(item);
-
       this.shopingCart.next(cart);
     }).unsubscribe();
 
