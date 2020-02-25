@@ -1,0 +1,246 @@
+[{
+        "isActiveRoute": false,
+        "routeDisplayName": "Dashboard",
+        "subRoutes": [],
+        "route": "dashboard",
+        "routeAccessFor": []
+    },
+    {
+        "isActiveRoute": false,
+        "routeDisplayName": "Billing",
+        "subRoutes": [{
+                "isActiveRoute": false,
+                "subRoutes": [],
+                "routeDisplayName": "Pending Bills",
+                "route": "pending",
+                "routeAccessFor": []
+            },
+            {
+                "isActiveRoute": false,
+                "subRoutes": [],
+                "routeDisplayName": "History",
+                "route": "history",
+                "routeAccessFor": []
+            }
+        ],
+        "route": "billing",
+        "routeAccessFor": []
+    },
+    {
+        "isActiveRoute": false,
+        "routeDisplayName": "Customer",
+        "subRoutes": [{
+                "isActiveRoute": false,
+                "subRoutes": [],
+                "routeDisplayName": "Customer list",
+                "route": "list",
+                "routeAccessFor": []
+            },
+            {
+                "isActiveRoute": false,
+                "subRoutes": [],
+                "routeDisplayName": "Add Customer",
+                "route": "add",
+                "routeAccessFor": []
+            },
+            {
+                "isActiveRoute": false,
+                "subRoutes": [],
+                "routeDisplayName": "Active Customers",
+                "route": "",
+                "routeAccessFor": []
+            },
+            {
+                "isActiveRoute": false,
+                "subRoutes": [],
+                "routeDisplayName": "Deleted Customers",
+                "route": "",
+                "routeAccessFor": []
+            },
+            {
+                "isActiveRoute": false,
+                "subRoutes": [],
+                "routeDisplayName": "Locked Customer",
+                "route": "",
+                "routeAccessFor": []
+            }
+        ],
+        "route": "customer",
+        "routeAccessFor": []
+    },
+    {
+        "isActiveRoute": false,
+        "routeDisplayName": "Inventory",
+        "subRoutes": [{
+                "isActiveRoute": false,
+                "subRoutes": [],
+                "routeDisplayName": "Stock",
+                "route": "stock",
+                "routeAccessFor": []
+            },
+            {
+                "isActiveRoute": false,
+                "subRoutes": [],
+                "routeDisplayName": "Add stock",
+                "route": "add",
+                "routeAccessFor": []
+            }
+        ],
+        "route": "inventory",
+        "routeAccessFor": []
+    },
+    {
+        "isActiveRoute": false,
+        "routeDisplayName": "Order",
+        "subRoutes": [{
+                "isActiveRoute": false,
+                "subRoutes": [],
+                "routeDisplayName": "Pending Orders",
+                "route": "",
+                "routeAccessFor": []
+            },
+            {
+                "isActiveRoute": false,
+                "subRoutes": [],
+                "routeDisplayName": "Recent Month Orders",
+                "route": "",
+                "routeAccessFor": []
+            },
+            {
+                "isActiveRoute": false,
+                "subRoutes": [],
+                "routeDisplayName": "Canceled Orders",
+                "route": "",
+                "routeAccessFor": []
+            },
+            {
+                "isActiveRoute": false,
+                "subRoutes": [],
+                "routeDisplayName": "History",
+                "route": "",
+                "routeAccessFor": []
+            }
+        ],
+        "route": "order",
+        "routeAccessFor": []
+    },
+    {
+        "isActiveRoute": false,
+        "routeDisplayName": "Product",
+        "subRoutes": [{
+                "isActiveRoute": false,
+                "subRoutes": [],
+                "routeDisplayName": "Product List",
+                "route": "list",
+                "routeAccessFor": []
+            },
+            {
+                "isActiveRoute": false,
+                "subRoutes": [],
+                "routeDisplayName": "Add Product",
+                "route": "add",
+                "routeAccessFor": []
+            },
+            {
+                "isActiveRoute": false,
+                "subRoutes": [],
+                "routeDisplayName": "Liked product",
+                "route": "liked",
+                "routeAccessFor": []
+            }
+        ],
+        "route": "product",
+        "routeAccessFor": []
+    },
+    {
+        "isActiveRoute": false,
+        "routeDisplayName": "Settings",
+        "subRoutes": [{
+                "isActiveRoute": false,
+                "subRoutes": [],
+                "routeDisplayName": "Change Password",
+                "route": "",
+                "routeAccessFor": []
+            },
+            {
+                "isActiveRoute": false,
+                "subRoutes": [],
+                "routeDisplayName": "Profile",
+                "route": "",
+                "routeAccessFor": []
+            },
+            {
+                "isActiveRoute": false,
+                "subRoutes": [],
+                "routeDisplayName": "Notification",
+                "route": "",
+                "routeAccessFor": []
+            }
+        ],
+        "route": "settings",
+        "routeAccessFor": []
+    },
+    {
+        "isActiveRoute": false,
+        "routeDisplayName": "Supplier",
+        "subRoutes": [{
+                "isActiveRoute": false,
+                "subRoutes": [],
+                "routeDisplayName": "Suppliers list",
+                "route": "list",
+                "routeAccessFor": []
+            },
+            {
+                "isActiveRoute": false,
+                "subRoutes": [],
+                "routeDisplayName": "Add Supplier",
+                "route": "add",
+                "routeAccessFor": []
+            }
+        ],
+        "route": "supplier",
+        "routeAccessFor": []
+    },
+    {
+        "isActiveRoute": false,
+        "routeDisplayName": "Purchase order",
+        "subRoutes": [{
+                "isActiveRoute": false,
+                "subRoutes": [],
+                "routeDisplayName": "Purchase Order list",
+                "route": "list",
+                "routeAccessFor": []
+            },
+            {
+                "isActiveRoute": false,
+                "subRoutes": [],
+                "routeDisplayName": "New purchase order",
+                "route": "add",
+                "routeAccessFor": []
+            }
+        ],
+        "route": "purchase-order",
+        "routeAccessFor": []
+    },
+    {
+        "isActiveRoute": false,
+        "routeDisplayName": "Goods Receipt Notes",
+        "subRoutes": [{
+                "isActiveRoute": false,
+                "subRoutes": [],
+                "routeDisplayName": "GRN list",
+                "route": "list",
+                "routeAccessFor": []
+            },
+            {
+                "isActiveRoute": false,
+                "subRoutes": [],
+                "routeDisplayName": "New GRN",
+                "route": "add",
+                "routeAccessFor": []
+            }
+        ],
+        "route": "goods-receipt-note",
+        "routeAccessFor": []
+    }
+]

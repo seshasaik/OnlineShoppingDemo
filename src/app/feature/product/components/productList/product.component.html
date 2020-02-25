@@ -1,0 +1,72 @@
+<div class="product-list-container" fxLayout="column" fxLayoutGap="20px" fxLayoutAlign="flex-start stretch">
+    <div class="product-list-search-container">
+        <div class="text-right" *ngIf="!isSearchContainerOpend">
+            <button mat-flat-button type="button" (click)="addProduct()">Add product</button>
+            <button mat-flat-button type="button" (click)="openSearchContainer()">Search</button>
+        </div>
+        <!-- <div *ngIf="isSearchContainerOpend">
+            <app-search-product></app-search-product>
+        </div> -->
+    </div>
+    <div>
+        <table mat-table [dataSource]="productsDataSource" multiTemplateDataRows>
+            <ng-container matColumnDef="sno">
+                <th mat-header-cell *matHeaderCellDef> # </th>
+                <td mat-cell *matCellDef="let element; let i = dataIndex">{{ i+1 }}</td>
+            </ng-container>
+            <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef> Name </th>
+                <td mat-cell *matCellDef="let element">{{element.name}}</td>
+            </ng-container>
+            <ng-container matColumnDef="status">
+                <th mat-header-cell *matHeaderCellDef> Status </th>
+                <td mat-cell *matCellDef="let element">{{element.status}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="action">
+                <th mat-header-cell *matHeaderCellDef> Actions </th>
+                <td mat-cell *matCellDef>
+                    <button type="button"> Edit</button>
+                    <button type="button"> Delete</button>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="moreInfo">
+                <td mat-cell *matCellDef="let moreInfoElement" [attr.colspan]="productsDataSource.data.length">
+                    <div fxLayout="column" class="product-more-details-container" fxLayoutAlign="flex-start stretch" fxLayouGap="10px" [@moreDetailExpand]="moreInfoElement === expandbleRow ? 'expanded' : 'collapsed'">
+                        <div fxFlex fxLayloutAlign="space-evenly flex-start" class="description-container">
+                            <h5>Description</h5>
+                            <div>
+                                <p>{{moreInfoElement.description}}</p>
+                            </div>
+                        </div>
+                        <div>
+                            <h5>Features</h5>
+                            <div>
+                                <p *ngFor="let feature of sortFeatures(moreInfoElement.features)">{{feature.feature}}</p>
+                            </div>
+                        </div>
+                        <div>
+                            <h5>Suppliers</h5>
+                            <div fxLayout="row wrap" fxLayoutAlign="space-evenly space-around" fxLayoutGap="10px" class="supplier-conatainer">
+                                <div *ngFor="let supplier of moreInfoElement.suppliers;" fxFlex="calc(50% - 10px)" fxLayout="column" fxLayoutalign="flex-start stretch" class="supplier-container">
+                                    <div>
+                                        <label>Name</label><span>: {{supplier.name}}</span>
+                                    </div>
+                                    <div>
+                                        <label>Reg No</label><span>: {{supplier.regNumber}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="columnToDisplay"></tr>
+            <tr mat-row *matRowDef="let row; columns:columnToDisplay;" class="product-short-detail" [class.product-short-detail-expanded]="row === expandbleRow" (click)="expandbleRow = row === expandbleRow ? null : row"></tr>
+            <tr mat-row *matRowDef="let moreInforow; columns:['moreInfo'];" class="product-more-detail">
+            </tr>
+        </table>
+    </div>
+</div>

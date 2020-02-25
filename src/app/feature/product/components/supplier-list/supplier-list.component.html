@@ -1,0 +1,59 @@
+<div class="product-list-outer" [ngStyle]="{'height.px':height}" [ngClass]="{'product-list-show':modelVisibilityStatus}">
+    <div class="product-list-container">
+        <div class="product-list-content" fxLayout="column" fxLayoutAlign="flex-start">
+            <div class="product-list-header">
+                <div fxFlex fxLayoutAlign="space-between">
+                    <h4>Suppliers</h4>
+                    <div (click)="dismissModel()">
+                        <mat-icon>close</mat-icon>
+                    </div>
+                </div>
+            </div>
+            <div class="product-list-body">
+                <div *ngIf="supplierDataSource.data.length; else noRecord">
+                    <table mat-table [dataSource]="supplierDataSource">
+                        <ng-container matColumnDef="select">
+                            <th mat-header-cell *matHeaderCellDef>
+                                <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? masterToggle() : null" [checked]="selection.hasValue() && isAllSelected()" [indeterminate]="selection.hasValue() && !isAllSelected()">
+                                </mat-checkbox>
+                            </th>
+                            <td mat-cell *matCellDef="let row">
+                                <div>
+                                    <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? selection.toggle(row) : null" [checked]="selection.isSelected(row)">
+                                    </mat-checkbox>
+                                </div>
+                            </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="name">
+                            <th mat-header-cell *matHeaderCellDef>Name</th>
+                            <td mat-cell *matCellDef="let element">{{element.name}}</td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="regNumber">
+                            <th mat-header-cell *matHeaderCellDef> Reg no</th>
+                            <td mat-cell *matCellDef="let element">{{element.regNumber}}</td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="mobile">
+                            <th mat-header-cell *matHeaderCellDef> Mobile</th>
+                            <td mat-cell *matCellDef="let element">{{element.mobile}}</td>
+                        </ng-container>
+
+                        <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+                        <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
+                    </table>
+                </div>
+                <ng-template #noRecord>
+                    <div class="noRecordFound">
+                        <h5>No records found</h5>
+                    </div>
+                </ng-template>
+            </div>
+            <div class="product-list-footer" fxFlex fxLayoutAlign="flex-end center" fxLayoutGap="20px">
+                <button mat-raised-button type="button" (click)="addSelectedSupplier()" [disabled]="!supplierDataSource.data.length">Add</button>
+                <button mat-raised-button type="button" (click)="dismissModel()">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>

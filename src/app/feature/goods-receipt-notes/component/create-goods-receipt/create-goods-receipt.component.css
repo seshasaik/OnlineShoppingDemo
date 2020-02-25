@@ -1,0 +1,20 @@
+.no-record-found>p {
+    margin: 0;
+    color: #797979;
+    font-size: 1.5em;
+    letter-spacing: 0.03em;
+}
+
+td:last-child {
+    padding-right: 10px !important;
+}
+
+.totalCost {
+    font-size: 15px;
+    color: #1b325e;
+    font-weight: 500;
+}
+
+.m-r20 {
+    margin-right: 20px;
+}

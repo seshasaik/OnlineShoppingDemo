@@ -1,0 +1,11 @@
+mat-form-field {
+    width: 100%;
+}
+
+mat-radio-group mat-radio-button {
+    margin-right: 15px;
+}
+
+mat-card-content>div {
+    margin: auto 15px;
+}

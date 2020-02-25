@@ -1,0 +1,103 @@
+.side-menu-content-container {
+    position: absolute;
+    width: 100%;
+    top: 64px;
+}
+
+ul.active {
+    display: block !important;
+}
+
+.side-menu-content-container ul {
+    list-style-type: none;
+    padding: 5px;
+    margin: 0px;
+    display: none;
+}
+
+.side-menu-content-container ul li {
+    padding: 5px;
+    margin: 5px 0px;
+    position: relative;
+    width: calc(100% - 10px);
+}
+
+.side-menu-content-container ul li.active,
+.side-menu-content-container ul li:hover {
+    /* background-color: #ec1941; */
+    background-color: #454f66;
+}
+
+.side-menu-content-container ul li.active::before,
+.side-menu-content-container ul li:hover::before {
+    content: '';
+    position: absolute;
+    top: 0px;
+    right: -4px;
+    border-right: 4px solid #fdfdfd;
+    height: 29px;
+}
+
+.side-menu-content-container ul li a {
+    text-decoration: none;
+    font-size: 0.99rem;
+    width: 100%;
+    display: block;
+    color: inherit;
+    outline: none;
+}
+
+.side-menu-content-container ul li a.active,
+.side-menu-content-container ul li:hover {
+    color: #fff !important;
+}
+
+.side-menu-content-container>div {
+    border-bottom: 1px solid #868686;
+    background: #0e0228;
+    color: #979797;
+}
+
+.side-menu-content-container>div>p {
+    margin: 10px auto;
+    padding: 5px 8px;
+}
+
+.side-menu-content-container>div:hover {
+    cursor: pointer;
+}
+
+.side-menu-content-container>div>.menu-clickable-area::before {
+    content: "";
+    position: absolute;
+    border-left: 5px solid #1ae4ee;
+    right: 0px;
+    height: 48px;
+    opacity: 0;
+}
+
+.side-menu-content-container>div>.open {
+    border-bottom: 1px solid #868686;
+}
+
+.side-menu-content-container>div>.menu-clickable-area>p:last-child>mat-icon {
+    transform: rotate(0deg);
+    transition: transform 0.3S linear;
+}
+
+.side-menu-content-container>div>.open>p:last-child>mat-icon {
+    transform: rotate(180deg);
+    transition: transform 0.3S linear;
+}
+
+.side-menu-content-container>div>.menu-clickable-area:hover::before,
+.side-menu-content-container>div>.open::before {
+    opacity: 1;
+    transition: width, opacity 0.3s ease-in;
+}
+
+.menu-clickable-area>p {
+    margin: 0;
+    padding: 10px 5px;
+    align-self: center;
+}

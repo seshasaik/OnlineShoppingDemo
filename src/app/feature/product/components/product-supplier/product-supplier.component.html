@@ -1,0 +1,20 @@
+<div class="supplier-small-widget" fxLayout="column" fxLayoutAlign="center space-around">
+    <div class="header" fxLayout fxLayoutAlign="space-between center">
+        <div class="text-left">
+            <label>Name : </label> {{supplier.name}}
+        </div>
+        <div>
+            <span (click)="removeProduct()">
+                <mat-icon>close</mat-icon>
+            </span>
+        </div>
+    </div>
+    <div class="body" fxLayout fxLayoutAlign>
+        <div fxFlex="50%" class="text-left">
+            <label>Regno : </label>{{supplier.regNumber}}
+        </div>
+        <div fxFlex="50%" class="text-left">
+            <label>Mobile : </label> {{supplier.mobile}}
+        </div>
+    </div>
+</div>

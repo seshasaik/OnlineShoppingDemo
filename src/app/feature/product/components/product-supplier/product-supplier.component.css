@@ -1,0 +1,25 @@
+.supplier-small-widget {
+    margin: 5px;
+    border: 1px solid #533c3c;
+    border-radius: 5px;
+}
+
+.header {
+    background-color: rgb(255, 230, 91);
+    color: rgb(128, 16, 240);
+    padding: 10px;
+}
+
+.body {
+    background-color: rgb(236, 111, 225);
+    color: rgb(62, 30, 219);
+    padding: 10px;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.header span {
+    cursor: pointer;
+}

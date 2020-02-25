@@ -1,0 +1,44 @@
+.model-header-container h2 {
+    margin: 0;
+}
+
+.model-header-container {
+    padding: 3px 10px 5px;
+    /* color: #9ec8ff;
+    background: #fff; */
+    color: #fbfbfb;
+    background: #ec12b6;
+    box-shadow: 0px 1px 5px 3px #acacac;
+    font-family: inherit;
+}
+
+.model-header-container button {
+    background: unset;
+    border: unset;
+    color: #fbfbfb;
+}
+
+.model-header-container button mat-icon {
+    vertical-align: middle;
+}
+
+.model-body-container {
+    margin-top: 10px;
+    padding-top: 3px;
+}
+
+.model-body-container>div {
+    margin: 5px 10px;
+    padding-left: 10px;
+}
+
+.model-body-container span {
+    color: #686868;
+}
+
+.model-body-container button {
+    background: #978d8d;
+    color: #f2f922;
+    font-family: inherit;
+    font-size: 1em;
+}

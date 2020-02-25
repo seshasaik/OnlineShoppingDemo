@@ -1,0 +1,52 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>
+            <h4>Shoping cart</h4>
+        </mat-card-title>
+        <img mat-card-md-image [attr.src]="/assets/img/shoping_items.jpg">
+    </mat-card-header>
+    <mat-card-content>
+        <div>
+            <div fxLayout fxLayoutAlign="flex-end stretch">
+                <span>Cost</span>
+            </div>
+            <div fxLayout="column" fxLayoutAlign="space-between flex-end">
+
+                <div fxLayout fxLayoutAlign="space-between flex-end" *ngFor="let cartItem of shopingCart.items" fxLayoutGap="15px">
+                    <div fxFlex="calc(70% - 15px)">
+                        <div>
+                            <img [attr.src]="/assets/img/no_image_found.jpg">
+                        </div>
+                        <div fxLayout="column" fxLayoutAlign="space-around flex-start" fxLayoutGap="10px">
+                            <div fxLayout fxLayoutAlign="flex-start stretch">
+                                <p>
+
+                                </p>
+                            </div>
+
+                            <div fxLayout fxLayoutAlign="flex-start stretch">
+
+                            </div>
+
+                            <div fxLayout fxLayoutAlign="flex-start stretch">
+
+                            </div>
+
+                            <div fxLayout fxLayoutAlign="flex-start stretch">
+                            </div>
+
+                        </div>
+                    </div>
+                    <div fxFlex="calc(30% - 15px)">
+                        <span></span>
+                    </div>
+                </div>
+
+            </div>
+            <div fxLayout fxLayoutAlign="flex-end stretch">
+                <div fxFlex="calc(70% - 15px)">Total cost</div>
+                <div fxFlex="calc(30% - 15px)">0</div>
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>

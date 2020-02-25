@@ -1,0 +1,36 @@
+.form-field-errors>span {
+    color: rgb(238, 39, 39);
+    padding: 5px 3px;
+}
+
+.form-field-errors {
+    margin-bottom: 10px;
+}
+
+:host {
+    background-color: yellow;
+}
+
+
+/* .profile-container {
+    position: absolute;
+    width: 100%;
+    height: auto;
+} */
+
+.profile-container mat-card-title h4 {
+    margin: 5px 0px;
+    font-family: Roboto, serif;
+    text-align: left;
+    padding-left: 5px;
+    color: #5bd8e4;
+    letter-spacing: 1.5px;
+}
+
+mat-form-field {
+    width: 100%;
+}
+
+.margin-right-10 {
+    margin-right: 10px;
+}

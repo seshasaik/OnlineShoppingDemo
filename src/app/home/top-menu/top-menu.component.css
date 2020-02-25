@@ -1,0 +1,10 @@
+.top-bar {
+    position: absolute;
+    width: 100%;
+    height: 30%;
+}
+
+.top-bar .site-header {
+    position: relative;
+    height: 30%;
+}

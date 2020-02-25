@@ -1,0 +1,107 @@
+<div>
+    <mat-card>
+        <mat-card-title>
+            <h4>
+                Purchase order
+            </h4>
+        </mat-card-title>
+        <mat-card-content>
+            <form [formGroup]="purchaseOrderFormGroup" (ngSubmit)="savePurcaseOrder()">
+                <div fxLayout="row wrap" fxLayoutAlign="stretch center" fxLayoutGap="20px">
+                    <div fxFlex="calc(50% - 20px)">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Purchase Order Code</mat-label>
+                            <input matInput formControlName="purchaseOrderCode" placeholder="Purchase Order Code">
+                            <mat-error *ngIf="purchaseOrderFormGroupControl['purchaseOrderCode'].invalid && (purchaseOrderFormGroupControl['purchaseOrderCode'].dirty || purchaseOrderFormGroupControl['purchaseOrderCode'].pristine)">
+                                <span *ngIf="purchaseOrderFormGroupControl['purchaseOrderCode'].hasError('required')">Purchase order code is required</span>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div fxFlex="calc(50% - 20px)">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Supplier</mat-label>
+                            <mat-select formControlName="supplierId" (selectionChange)="openAddProductDialog($event)">
+                                <mat-option value="">--select status--</mat-option>
+                                <mat-option [value]="supplier.id" *ngFor="let supplier of suppliers;">{{supplier.name}}</mat-option>
+                            </mat-select>
+                            <mat-error *ngIf="purchaseOrderFormGroupControl['supplierId'].invalid && (purchaseOrderFormGroupControl['supplierId'].dirty || purchaseOrderFormGroupControl['supplierId'].pristine)">
+                                <span *ngIf="purchaseOrderFormGroupControl['supplierId'].hasError('required')">Supplier is required</span>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <div formArrayName="items" fxFlex="calc(100% - 40px)">
+                        <table>
+                            <thead>
+                                <th>sno</th>
+                                <th>name</th>
+                                <!-- <th>category</th> -->
+                                <th class="min-width">Required Qty</th>
+                                <th class="min-width">Unit price</th>
+                                <th class="min-width">Total</th>
+                                <th>action</th>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of items.controls; let i = index" [formGroupName]="i">
+                                    <td class="full-width">{{ i + 1}}</td>
+                                    <td>
+                                        <div formGroupName="product">
+                                            <input type="hidden" formControlName="id">
+                                            <input type="text" class="full-width no-border-input" formControlName="name" readonly>
+                                        </div>
+                                    </td>
+                                    <!-- <td>
+                                    <input type="text" disabled placeholder="Ordered Qty" />
+                                </td> -->
+                                    <td>
+                                        <input type="text" onlyNumbers class="full-width text-right text-direction-right" formControlName="orderedQty" placeholder="Ordered Qty" />
+                                    </td>
+                                    <td>
+                                        <input type="text" uptoTwoDecimalAfterDot class="full-width text-right text-direction-right" formControlName="unitPrice" placeholder="Unit Price" />
+                                    </td>
+                                    <td>
+                                        <input type="text " class="full-width no-border-input text-right text-direction-right" formControlName="cost" placeholder="cost" readonly/>
+                                    </td>
+                                    <td>
+                                        <!-- <div (click)="removeProduct(i) "> -->
+                                        <div (click)="checkFormControlStatusInFormArray(i)" class="text-center" [ngStyle]="{'padding-top.px':5}">
+                                            <mat-icon>close</mat-icon>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr *ngIf="items.controls.length> 0">
+                                    <td colspan="4" class="text-right text-direction-right">Total Cost</td>
+                                    <td class="text-right">
+                                        <div class="text-direction-right m-lr">
+                                            &#8377; {{totalCost.toFixed(2) || 0.00}}
+                                        </div>
+                                    </td>
+                                    <td></td>
+                                </tr>
+
+                                <tr *ngIf="items.controls.length === 0">
+                                    <td colspan="6">
+                                        <p class="text-center">
+                                            <span>No data found</span>
+                                        </p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div *ngIf="purchaseOrderFormGroupControl['items'].invalid && (purchaseOrderFormGroupControl['items'].dirty || purchaseOrderFormGroupControl['items'].pristine)">
+                            <span class="zero-products-error" *ngIf="purchaseOrderFormGroupControl['items'].hasError('emptyProduct')">
+                                {{purchaseOrderFormGroupControl['items'].errors.emptyProduct}}
+                            </span>
+                        </div>
+                    </div>
+                    <div fxFlex="calc(100% - 40px)" class="margin-top-10" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="15px">
+                        <button mat-raised-button type="submit" [disabled]="purchaseOrderFormGroup.invalid">Save</button>
+                        <button mat-raised-button type="button" (click)="cancelPurchaseOrder()">Cancel</button>
+                    </div>
+                </div>
+            </form>
+        </mat-card-content>
+    </mat-card>
+
+
+</div>

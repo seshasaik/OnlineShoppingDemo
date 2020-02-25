@@ -1,0 +1,127 @@
+mat-form-field {
+    width: 100%
+}
+
+.noDataFound {
+    padding: 25px 10px;
+    text-align: center;
+}
+
+.addSupplier {
+    padding: 10px;
+    text-align: center;
+}
+
+.subHeading {
+    padding-left: 5px;
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+}
+
+form table {
+    width: 100%;
+    border: 1px solid #cccaca;
+    border-collapse: collapse;
+    font-family: roboto, sans-serif;
+    font-size: 15px;
+    text-align: left;
+}
+
+form table thead th {
+    background-color: rgb(143, 37, 248);
+    padding: 10px 5px;
+    font-size: 15px;
+    color: #fff;
+}
+
+tr {
+    border-bottom: 1px solid rgb(158, 158, 158);
+}
+
+tr td:last-child div {
+    align-items: center;
+    padding: 8px 5px;
+}
+
+tr td:not(:last-child) {
+    border-right: 1px solid rgb(158, 158, 158);
+}
+
+form table thead th:not(:last-child) {
+    border-right: 1px solid #fff;
+}
+
+form table thead tr th:last-child,
+form table tbody tr td:last-child {
+    width: 12%;
+}
+
+form table thead tr th:first-child,
+form table tbody tr td:first-child {
+    width: 5%;
+}
+
+form table tbody tr td:first-child {
+    color: rgb(48, 48, 48);
+    font-size: 15px;
+    text-align: center;
+}
+
+form table thead tr th:nth-child(3),
+form table tbody tr td:nth-child(3) {
+    width: 15%;
+}
+
+form table tbody tr td:not(:last-child):hover {
+    cursor: pointer;
+}
+
+#featuresTable tbody tr td input {
+    line-height: 2rem;
+}
+
+#featuresTable tbody tr td input,
+#featuresTable tbody tr td textarea {
+    border: 1px solid rgb(158, 158, 158);
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin: 10px 5px;
+    width: calc(100% - 30px);
+    font-size: 16px;
+    font-family: inherit;
+    font-weight: 398;
+}
+
+#featuresTable tbody tr td div {
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+
+.confirmation-dialog-header {
+    background-color: #1466c5;
+    color: #ffffff;
+    padding: 15px 5px;
+}
+
+.confirmation-dialog-header h4 {
+    margin: 5px 10px;
+}
+
+.confirmation-dialog-body {
+    padding: 15px 20px;
+}
+
+.confirmation-dialog-footer button {
+    margin-right: 15px;
+}
+
+.confirmation-dialog-header span {
+    margin-right: 5px;
+}
+
+.border-red {
+    border-color: rgb(255, 0, 0) !important;
+}

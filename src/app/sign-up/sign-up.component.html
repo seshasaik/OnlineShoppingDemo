@@ -1,0 +1,78 @@
+<div class="sign-up-container" fxLayout fxLayoutAlign="center center">
+    <div class="sign-up-card-container" fxLayout="column" fxLayoutAlign="flex-start stretch">
+        <mat-card>
+            <mat-card-title>
+                <h2>Register</h2>
+            </mat-card-title>
+            <mat-card-content>
+                <form [formGroup]="signUpForm" fxLayout="row wrap" fxFlexFill fxLayoutGap="20px" (ngSubmit)="register()">
+                    <div fxFlex="calc(50%-20px)">
+                        <mat-form-field>
+                            <input matInput placeholder="First Name" formControlName="firstName">
+                        </mat-form-field>
+                    </div>
+                    <div fxFlex="calc(50%-20px)">
+                        <mat-form-field>
+                            <input matInput placeholder="Middle Name" formControlName="middleName">
+                        </mat-form-field>
+                    </div>
+
+                    <div fxFlex="calc(50%-20px)">
+                        <mat-form-field>
+                            <input matInput placeholder="Last Name" formControlName="lastName">
+                        </mat-form-field>
+                    </div>
+                    <div fxFlex="calc(50%-20px)" fxFlexAlign="center">
+                        <mat-radio-group formControlName="gender">
+                            <mat-radio-button value="MALE" [ngStyle]="{'margin-right':'30px'}">Male</mat-radio-button>
+                            <mat-radio-button value="FEMALE">FeMale</mat-radio-button>
+                        </mat-radio-group>
+
+                    </div>
+
+                    <div fxFlex="calc(50%-20px)">
+                        <mat-form-field>
+                            <input matInput placeholder="email" formControlName="email">
+                        </mat-form-field>
+                    </div>
+
+                    <div fxFlex="calc(50%-20px)">
+                        <mat-form-field>
+                            <input matInput placeholder="mobile" formControlName="mobile">
+                        </mat-form-field>
+                    </div>
+
+                    <div fxFlex="calc(50%-20px)">
+                        <mat-form-field>
+                            <input matInput placeholder="User id" formControlName="userName">
+                        </mat-form-field>
+                    </div>
+
+                    <div fxFlex="calc(50%-20px)">
+                        <mat-form-field>
+                            <input matInput type="password" placeholder="password" formControlName="password">
+                        </mat-form-field>
+                    </div>
+
+                    <div fxFlex="calc(100%-40px)">
+                        <mat-form-field>
+                            <textarea matInput placeholder="address" formControlName="address"></textarea>
+                        </mat-form-field>
+                    </div>
+                    <div fxFlex="calc(100%-20px)" fxLayout fxLayoutAlign="flex-end center" fxLayoutGap="15px">
+                        <button mat-raised-button [disabled]="!signUpForm.valid">Sign up</button>
+                        <button mat-raised-button (click)="signUpForm.reset()">Clear</button>
+                    </div>
+                </form>
+            </mat-card-content>
+            <mat-card-footer>
+                <div fxLayout fxLayoutAlign="space-around center">
+                    <a [routerLink]="['/login']">Login</a>
+                    <a [routerLink]="['/forget-password']">Forget Password</a>
+                </div>
+            </mat-card-footer>
+        </mat-card>
+    </div>
+
+
+</div>
